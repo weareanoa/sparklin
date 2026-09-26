@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none" class="sparklin-brand-svg">
+  <defs>
+    <path id="archPath" d="M 30,52 Q 140,16 250,52" />
+  </defs>
+  <!-- Arched SPARKLIN text -->
+  <text font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="900" letter-spacing="3" fill="currentColor">
+    <textPath href="#archPath" startOffset="50%" text-anchor="middle">
+      SPARKLIN
+    </textPath>
+  </text>
+  <!-- Sparkle stars -->
+  <g fill="currentColor">
+    <!-- Center star -->
+    <path d="M 140,36 Q 140,43 145,43 Q 140,43 140,50 Q 140,43 135,43 Q 140,43 140,36 Z" />
+    <!-- Left small star -->
+    <path d="M 108,44 Q 108,48 111,48 Q 108,48 108,52 Q 108,48 105,48 Q 108,48 108,44 Z" />
+    <!-- Right small star -->
+    <path d="M 172,44 Q 172,48 175,48 Q 172,48 172,52 Q 172,48 169,48 Q 172,48 172,44 Z" />
+  </g>
+  <!-- Subtitle banner: SHOE CARE -->
+  <text x="140" y="66" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" letter-spacing="4" fill="currentColor" opacity="0.9">
+    SHOE CARE
+  </text>
+  <text x="140" y="77" text-anchor="middle" font-family="'Playfair Display', serif" font-style="italic" font-size="7.5" fill="currentColor" opacity="0.65">
+    est. 2024
+  </text>
+</svg>
