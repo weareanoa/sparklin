@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../../data/site';
 ---
 
 <section class="about-section" id="tentang">
@@ -7,7 +8,7 @@
           <div class="about-top-grid">
             <div class="about-brand-visual">
               <img
-                src="/images/sparklin-logo-white.png"
+                src={withBase("/images/sparklin-logo-white.png")}
                 alt="Sparklin Shoe Care Emblem"
                 class="about-logo-img"
               />

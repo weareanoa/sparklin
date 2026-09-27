@@ -1,5 +1,5 @@
 ---
-import { whatsappGeneral } from '../../data/site';
+import { whatsappGeneral, withBase } from '../../data/site';
 ---
 
 <section class="hero-section" id="beranda">
@@ -35,7 +35,7 @@ import { whatsappGeneral } from '../../data/site';
             <div class="sneaker-card">
               <div class="ambient-glow" aria-hidden="true"></div>
               <img
-                src="/images/hero-sneakers-pair.png"
+                src={withBase("/images/hero-sneakers-pair.png")}
                 alt="Air Jordan 4 sneaker sebelum dan sesudah perawatan di Sparklin Shoe Care"
                 class="hero-sneaker-img"
               />

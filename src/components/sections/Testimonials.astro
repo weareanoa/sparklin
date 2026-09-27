@@ -1,5 +1,5 @@
 ---
-import { testimonials } from '../../data/site';
+import { testimonials, withBase } from '../../data/site';
 ---
 
 <section class="testimonials-section" id="testimoni">
@@ -20,7 +20,7 @@ import { testimonials } from '../../data/site';
                   "{testi.quote}"
                 </blockquote>
                 <div class="testi-author">
-                  <img src={testi.avatar} alt={testi.name} class="author-avatar" />
+                  <img src={withBase(testi.avatar)} alt={testi.name} class="author-avatar" />
                   <div class="author-meta">
                     <strong class="author-name">{testi.name}</strong>
                     <span class="author-role">{testi.role}</span>

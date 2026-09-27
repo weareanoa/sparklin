@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../../data/site';
 ---
 
 <section class="showcase-section" id="showcase">
@@ -35,7 +36,7 @@
             >
               <!-- Base (Clean After Image) -->
               <img
-                src="/images/slider-shoe-box.png"
+                src={withBase("/images/slider-shoe-box.png")}
                 alt="Hasil sesudah perawatan sepatu Sparklin"
                 class="slider-img slider-base-img"
                 draggable="false"
@@ -44,7 +45,7 @@
               <!-- Overlay (Dirty Before Image) with clip-path/width -->
               <div class="slider-overlay" id="comparisonOverlay">
                 <img
-                  src="/images/slider-shoe-box.png"
+                  src={withBase("/images/slider-shoe-box.png")}
                   alt="Kondisi sebelum perawatan sepatu Sparklin"
                   class="slider-img slider-overlay-img"
                   draggable="false"

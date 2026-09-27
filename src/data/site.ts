@@ -1,4 +1,9 @@
 // Sparklin Shoe Care — all page content lives here. Edit prices, copy, links.
+
+/** Prefix asset paths with the configured base URL (e.g. '/sparklin' on GitHub Pages). */
+export const withBase = (path: string): string =>
+  import.meta.env.BASE_URL.replace(/\/$/, '') + path;
+
 const whatsappNumber = '6280000000000';
 export const whatsappBase = `https://wa.me/${whatsappNumber}?text=`;
 export const whatsappGeneral = `${whatsappBase}${encodeURIComponent('Halo Sparklin, saya mau konsultasi dan booking cuci sepatu.')}`;
