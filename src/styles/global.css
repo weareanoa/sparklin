@@ -9,7 +9,7 @@
     --color-text-main: #182e1e;
     --color-text-muted: #28402c;
     --color-border-soft: rgba(27, 56, 34, 0.12);
-    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-sans: 'Poppins', 'Instrument Sans', system-ui, -apple-system, sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
     --font-mono: 'JetBrains Mono', monospace;
 }

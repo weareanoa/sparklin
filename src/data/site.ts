@@ -148,24 +148,24 @@ export const values = [
 
 export const testimonials = [
   {
-    name: 'Alya Putri',
+    name: 'Irsyad',
     role: 'Mahasiswa Unpad',
-    avatar: '/images/testi-1.png',
+    avatar: '/images/testi-1.jpg',
     stars: 5,
-    quote: 'Sepatu putihku yang udah kusam banget karena sering dipakai ngampus balik kinclong kayak baru beli! Sol yang tadinya dekil sekarang bersih total. Puas banget!',
+    quote: 'Sparkling luar biasa! terlepas dari pencucian spatu yang baik mereka juga memberikan pelayanan yang diluar ekspektasi',
   },
   {
-    name: 'Raka Pratama',
+    name: 'Farhan',
     role: 'Sneakerhead Bandung',
-    avatar: '/images/testi-2.png',
+    avatar: '/images/testi-2.jpg',
     stars: 5,
-    quote: 'Treatment Unyellowing-nya gila sih, midsole Air Jordan 4 gue yang udah bertahun-tahun menguning bisa balik cerah lagi tanpa ngerusak material. Sangat recommended!',
+    quote: 'Sparkling menawarkan jasa yang terjangkau dan memberikan hasil yang memuaskan.',
   },
   {
-    name: 'Dimas Setiawan',
+    name: 'Aulia Yusuf',
     role: 'Pekerja Kantoran',
-    avatar: '/images/testi-3.png',
+    avatar: '/images/testi-3.jpg',
     stars: 5,
-    quote: 'Paling suka sama Express Service-nya. Drop pagi sebelum berangkat kerja, besok siangnya udah selesai, wangi, dan dipacking rapi. Bakal langganan terus!',
+    quote: 'Pelayanan cepat langsung ke depan pintu rumah.',
   },
 ];

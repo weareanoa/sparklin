@@ -3,137 +3,215 @@ import { testimonials } from '../../data/site';
 ---
 
 <section class="testimonials-section" id="testimoni">
-        <div class="section-shell">
-          <div class="testi-header">
-            <h2 class="section-title">
-              <span class="italic-serif">TESTIMONI</span>
-            </h2>
-            <div class="testi-pill-badge">Dari mereka, untuk kamu.</div>
+  <div class="section-shell">
+    <div class="testi-header">
+      <h2 class="testi-title">TESTIMONI</h2>
+      <div class="testi-pill-badge">Dari mereka, untuk kamu.</div>
+    </div>
+
+    <div class="testimonials-grid">
+      {testimonials.map((testi, i) => (
+        <div class="testi-item">
+          <!-- Dark green blob (rotated) -->
+          <div class={`testi-blob blob-${i}`}></div>
+          
+          <!-- Main Card -->
+          <div class="testi-card">
+            <div class="testi-avatar-wrapper">
+              <img src={testi.avatar} alt={testi.name} />
+            </div>
+            
+            <div class="testi-quote-icon">
+              <img src="/images/kutip.png" alt="Quote" />
+            </div>
+
+            <h3 class="testi-author-name">{testi.name.toUpperCase()}</h3>
+            <p class="testi-text">{testi.quote}</p>
           </div>
 
-          <div class="testimonials-grid">
-            {testimonials.map((testi) => (
-              <div class="testi-card">
-                <div class="testi-quote-mark">“</div>
-                <div class="testi-stars">{'★'.repeat(testi.stars)}</div>
-                <blockquote class="testi-text">
-                  "{testi.quote}"
-                </blockquote>
-                <div class="testi-author">
-                  <img src={testi.avatar} alt={testi.name} class="author-avatar" />
-                  <div class="author-meta">
-                    <strong class="author-name">{testi.name}</strong>
-                    <span class="author-role">{testi.role}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <!-- Stars Pill (Overlapping Bottom) -->
+          <div class="testi-stars-pill">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
 <style is:global>
 .testimonials-section {
-padding: 95px 0;
-    background: var(--color-bg-cream);
+  padding: 120px 0;
+  background: #fdfceb; /* matching the cream background perfectly */
+  overflow: hidden; /* prevent blobs causing horizontal scroll */
 }
 
 .testi-header {
-display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 46px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.testi-title {
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(3rem, 6vw, 4rem);
+  color: #4e8761;
+  letter-spacing: -2px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
 .testi-pill-badge {
-background: var(--color-dark-green);
-    color: #ffffff;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 600;
-    padding: 6px 16px;
-    border-radius: 999px;
+  background: linear-gradient(180deg, #48825c 0%, #639d75 100%);
+  color: white;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 10px 80px;
+  border-radius: 999px;
+  box-shadow: none;
 }
 
 .testimonials-grid {
-display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 140px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
+
+.testi-item {
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.testi-blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #4d845e; /* Lighter olive green */
+  border-radius: 28px;
+  z-index: 1;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25); /* Added thicker shadow to the blob */
+}
+
+/* More pronounced rotations */
+.blob-0 { transform: rotate(14deg); } /* Miring ke kanan */
+.blob-1 { transform: rotate(-14deg); } /* Miring ke kiri */
+.blob-2 { transform: rotate(14deg); } /* Miring ke kanan */
 
 .testi-card {
-background: #ffffff;
-    border-radius: 24px;
-    padding: 38px 30px;
-    box-shadow: 0 12px 30px rgba(27, 56, 34, 0.06);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid var(--color-border-soft);
+  position: relative;
+  background: #fdfceb;
+  border-radius: 28px;
+  padding: 45px 28px 35px;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25); /* Stronger outer shadow */
 }
 
-.testi-quote-mark {
-font-family: var(--font-serif);
-    font-size: 3.8rem;
-    line-height: 1;
-    color: rgba(27, 56, 34, 0.12);
-    position: absolute;
-    top: 20px;
-    right: 28px;
+.testi-avatar-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  border: 8px solid #fdfceb;
+  background: #fdfceb;
+  overflow: hidden;
 }
 
-.testi-stars {
-color: #e59819;
-    letter-spacing: 3px;
-    font-size: 0.95rem;
-    margin-bottom: 18px;
+.testi-avatar-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testi-quote-icon {
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.testi-quote-icon img {
+  width: 40px;
+  height: auto;
+  object-fit: contain;
+}
+
+.testi-author-name {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #48825c;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
 }
 
 .testi-text {
-font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--color-text-muted);
-    margin-bottom: 26px;
-    font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #79a286;
+  font-weight: 500;
+  flex: 1;
+  text-align: justify;
 }
 
-.testi-author {
-display: flex;
-    align-items: center;
-    gap: 14px;
-    padding-top: 18px;
-    border-top: 1px solid var(--color-border-soft);
+.testi-stars-pill {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background: #fdfceb;
+  padding: 10px 24px;
+  border-radius: 999px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  z-index: 3;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35); /* Shadow lebih tebal/pekat */
 }
 
-.author-avatar {
-width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--color-dark-green);
+.testi-stars-pill .star {
+  color: #48825c;
+  font-size: 1.25rem;
 }
 
-.author-meta {
-display: flex;
-    flex-direction: column;
+.testi-stars-pill .star:nth-child(3) {
+  font-size: 1.7rem; /* Make the middle star larger */
+  transform: translateY(-2px); /* optionally lift it slightly */
 }
 
-.author-name {
-font-size: 0.95rem;
-    color: var(--color-dark-green);
+/* Specific overrides for the middle card */
+.testi-item:nth-child(2) .testi-blob {
+  background: rgb(11, 61, 30);
 }
 
-.author-role {
-font-size: 0.78rem;
-    color: var(--color-text-muted);
+.testi-item:nth-child(2) .star {
+  color: rgb(11, 61, 30);
 }
 
 @media (max-width: 1024px) {
   .testimonials-grid {
-
-      grid-template-columns: 1fr;
-    
+    grid-template-columns: 1fr;
+    gap: 120px;
   }
 }
 </style>

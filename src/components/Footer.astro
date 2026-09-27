@@ -5,25 +5,9 @@ import { whatsappGeneral } from '../data/site';
 <!-- 9. FOOTER -->
     <footer class="site-footer">
       <div class="section-shell footer-content">
-        <!-- Logo Emblem SVG (Crisp White) -->
+        <!-- Logo Emblem -->
         <div class="footer-brand">
-          <svg viewBox="0 0 280 75" fill="none" class="footer-svg-logo" aria-hidden="true">
-            <defs>
-              <path id="archFooterPath" d="M 20,48 Q 140,16 260,48" />
-            </defs>
-            <text font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="900" letter-spacing="3" fill="#FFFFFF">
-              <textPath href="#archFooterPath" startOffset="50%" text-anchor="middle">
-                SPARKLIN
-              </textPath>
-            </text>
-            <path d="M 140,36 Q 140,41 144,41 Q 140,41 140,46 Q 140,41 136,41 Q 140,41 140,36 Z" fill="#FFFFFF" />
-            <text x="140" y="60" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" letter-spacing="4" fill="#FFFFFF" opacity="0.9">
-              SHOE CARE
-            </text>
-            <text x="140" y="70" text-anchor="middle" font-family="'Playfair Display', serif" font-style="italic" font-size="7.5" fill="#FFFFFF" opacity="0.65">
-              est. 2024
-            </text>
-          </svg>
+          <img src="/images/logo-white.png" alt="Sparklin Shoe Care" class="footer-svg-logo" />
         </div>
 
         <div class="footer-divider"></div>
@@ -50,24 +34,27 @@ import { whatsappGeneral } from '../data/site';
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
           </a>
         </div>
+        
+        <p class="footer-location" style="font-family: var(--font-mono); font-size: 0.85rem; color: #8fa092; margin-top: -5px;">Bandung, Jawa Barat</p>
+      </div>
 
-        <!-- Location & Copyright -->
-        <div class="footer-meta">
-          <p class="footer-location">Bandung, Jawa Barat</p>
-          <p class="footer-copy">© 2024 Sparklin Shoe Care. All rights reserved.</p>
+      <div class="footer-bottom-bar">
+        <div class="section-shell bottom-bar-inner">
+          <p>© 2026 Sparklin Shoe Care</p>
+          <p>Dibuat oleh: @weareanoa</p>
         </div>
       </div>
     </footer>
 
 <style is:global>
 .site-footer {
-background: var(--color-forest-deep);
+    background: rgb(11, 61, 30);
     color: #ffffff;
-    padding: 70px 0 40px;
+    padding: 70px 0 20px;
 }
 
 .footer-content {
-display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -75,19 +62,20 @@ display: flex;
 }
 
 .footer-svg-logo {
-height: 55px;
+    height: 75px;
     width: auto;
 }
 
 .footer-divider {
-width: 100%;
+    width: 15%;
     max-width: 800px;
     height: 1px;
     background: rgba(255, 255, 255, 0.12);
+    margin-top: -16px;
 }
 
 .footer-nav {
-display: flex;
+    display: flex;
     align-items: center;
     gap: 32px;
     flex-wrap: wrap;
@@ -95,53 +83,60 @@ display: flex;
 }
 
 .footer-nav a {
-font-size: 0.9rem;
+    font-size: 0.9rem;
     font-weight: 600;
     color: #d1dcce;
     transition: color 0.15s ease;
 }
 
 .footer-nav a:hover {
-color: var(--color-accent-lime);
+    color: var(--color-accent-lime);
 }
 
 .footer-socials {
-display: flex;
+    display: flex;
     align-items: center;
     gap: 18px;
 }
 
 .social-icon {
-width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    display: grid;
-    place-items: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     color: #ffffff;
     transition: all 0.2s ease;
 }
 
 .social-icon:hover {
-background: var(--color-accent-lime);
-    color: var(--color-dark-green);
+    color: var(--color-accent-lime);
     transform: translateY(-3px);
 }
 
-.footer-meta {
-display: flex;
-    flex-direction: column;
-    gap: 6px;
+.footer-bottom-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: 24px;
+    padding-top: 16px;
+    width: 100%;
+}
+
+.bottom-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: #8fa092;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 @media (max-width: 768px) {
   .footer-nav {
-
       gap: 16px;
-    
+  }
+  .bottom-bar-inner {
+      justify-content: center;
+      text-align: center;
   }
 }
 </style>
