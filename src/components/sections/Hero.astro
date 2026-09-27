@@ -1,0 +1,236 @@
+---
+import { whatsappGeneral } from '../../data/site';
+---
+
+<section class="hero-section" id="beranda">
+        <!-- Giant Watermark Background -->
+        <div class="hero-watermark" aria-hidden="true">SPARKLIN</div>
+
+        <div class="hero-shell">
+          <!-- Left: Copy & CTAs -->
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Step up,<br />
+              <span class="italic-serif">Stand</span> out.
+            </h1>
+
+            <p class="hero-desc">
+              Perawatan sepatu di Bandung sejak 2024. Cuci, hilangkan noda, dan perbaikan dengan pendekatan ramah lingkungan untuk mahasiswa dan penggemar sneakers.
+            </p>
+
+            <div class="hero-actions">
+              <a href={whatsappGeneral} target="_blank" rel="noreferrer" class="btn btn-primary">
+                <span>Booking via WhatsApp</span>
+                <span class="btn-arrow">↗</span>
+              </a>
+              <a href="#layanan" class="btn btn-secondary">
+                <span>Lihat Layanan</span>
+                <span class="btn-arrow">↓</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Sneakers Visual Showcase -->
+          <div class="hero-visual">
+            <div class="sneaker-card">
+              <div class="ambient-glow" aria-hidden="true"></div>
+              <img
+                src="/images/hero-sneakers-pair.png"
+                alt="Air Jordan 4 sneaker sebelum dan sesudah perawatan di Sparklin Shoe Care"
+                class="hero-sneaker-img"
+              />
+              <div class="visual-tag-before" aria-hidden="true">Sebelum: Dekil & Noda</div>
+              <div class="visual-tag-after" aria-hidden="true">Sesudah: Kinclong & Fresh ✦</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<style is:global>
+.hero-section {
+position: relative;
+    padding-top: 105px;
+    padding-bottom: 50px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-watermark {
+position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-sans);
+    font-weight: 900;
+    font-size: clamp(8rem, 20vw, 20rem);
+    color: rgba(27, 56, 34, 0.02);
+    letter-spacing: -0.05em;
+    user-select: none;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-shell {
+position: relative;
+    z-index: 2;
+    width: min(1200px, calc(100% - 48px));
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-title {
+font-size: clamp(3.2rem, 5.8vw, 5.8rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    color: var(--color-dark-green);
+    margin-bottom: 20px;
+}
+
+.hero-desc {
+font-size: 1.08rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+    max-width: 520px;
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.hero-visual {
+position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sneaker-card {
+position: relative;
+    width: 100%;
+    max-width: 520px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sneaker-card:hover {
+transform: translateY(-6px) scale(1.015);
+}
+
+.hero-sneaker-img {
+width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(27, 56, 34, 0.12);
+}
+
+.ambient-glow {
+position: absolute;
+    inset: -16px;
+    background: radial-gradient(circle, rgba(176, 212, 58, 0.22) 0%, transparent 70%);
+    filter: blur(28px);
+    z-index: -1;
+}
+
+.visual-tag-before {
+position: absolute;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.visual-tag-after {
+position: absolute;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.visual-tag-before {
+bottom: 20px;
+    left: 20px;
+    background: rgba(252, 252, 248, 0.92);
+    color: #8c5a2b;
+    border: 1px solid rgba(140, 90, 43, 0.2);
+}
+
+.visual-tag-after {
+top: 20px;
+    right: 20px;
+    background: var(--color-dark-green);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .hero-shell {
+
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 40px;
+    
+  }
+
+  .hero-content {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    
+  }
+
+  .hero-desc {
+
+      margin-inline: auto;
+    
+  }
+
+  .hero-actions {
+
+      justify-content: center;
+    
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+
+      padding-top: 95px;
+      padding-bottom: 40px;
+    
+  }
+
+  .hero-title {
+
+      font-size: 2.8rem;
+    
+  }
+
+  .hero-actions {
+
+      flex-direction: column;
+      width: 100%;
+    
+  }
+
+  .hero-actions .btn {
+
+      width: 100%;
+    
+  }
+}
+</style>

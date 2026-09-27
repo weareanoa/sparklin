@@ -1,0 +1,88 @@
+---
+import { values } from '../../data/site';
+---
+
+<section class="why-us-section" id="kenapa">
+        <div class="section-shell">
+          <div class="section-header-block">
+            <h2 class="section-title">
+              <span class="italic-serif">Kenapa</span> Memilih Kami?
+            </h2>
+            <p class="section-subtitle">
+              Dedikasi penuh merawat sepatu kesayanganmu dengan standar tertinggi.
+            </p>
+          </div>
+
+          <div class="values-grid">
+            {values.map((val) => (
+              <div class="value-card">
+                <div class="value-icon-box">
+                  {val.type === 'fast' && (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  )}
+                  {val.type === 'eco' && (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-4 3.5-7.5 8-8 4.5.5 8 4 8 8a7 7 0 0 1-7 7z"/><path d="M12 5v15"/></svg>
+                  )}
+                  {val.type === 'expert' && (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                  )}
+                  {val.type === 'price' && (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><circle cx="7" cy="7" r="1.5"/></svg>
+                  )}
+                </div>
+                <h3 class="value-title">{val.title}</h3>
+                <p class="value-desc">{val.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+<style is:global>
+.why-us-section {
+padding: 100px 0;
+}
+
+.values-grid {
+display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.value-card {
+background: var(--color-bg-card);
+    border-radius: 20px;
+    padding: 34px 26px;
+    border: 1px solid var(--color-border-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.2s ease;
+}
+
+.value-card:hover {
+transform: translateY(-5px);
+}
+
+.value-icon-box {
+width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(27, 56, 34, 0.08);
+    color: var(--color-dark-green);
+    display: grid;
+    place-items: center;
+}
+
+.value-title {
+font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--color-dark-green);
+}
+
+.value-desc {
+font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+}
+</style>

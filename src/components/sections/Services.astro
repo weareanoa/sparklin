@@ -1,0 +1,224 @@
+---
+import { services, whatsappBase } from '../../data/site';
+---
+
+<section class="services-section" id="layanan">
+        <div class="section-shell">
+          <div class="section-header-block">
+            <h2 class="section-title">
+              <span class="italic-serif">Layanan</span> Sparklin
+            </h2>
+            <p class="section-subtitle">
+              Tinggal pilih yang sesuai dengan kondisi sepatumu. Ragu? Konsultasikan ke kami secara gratis.
+            </p>
+          </div>
+
+          <!-- Services Grid -->
+          <div class="services-grid">
+            {services.map((item) => {
+              const waUrl = `${whatsappBase}${encodeURIComponent(`Halo Sparklin, saya ingin booking layanan ${item.name} (${item.price}).`)}`;
+              return (
+                <article class={`service-card ${item.isHero ? 'is-hero-card' : ''}`}>
+                  <div class="card-top">
+                    <span class="card-tag">{item.tag}</span>
+                    <span class="card-time">{item.time}</span>
+                  </div>
+
+                  <div class="card-body">
+                    <span class="card-alias">{item.alias}</span>
+                    <h3 class="card-name">{item.name}</h3>
+                    <p class="card-desc">{item.desc}</p>
+                  </div>
+
+                  <div class="card-footer">
+                    <div class="price-box">
+                      <span class="price-label">Mulai</span>
+                      <strong class="price-value">{item.price}</strong>
+                    </div>
+                    <a
+                      href={waUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      class="card-action-btn"
+                      aria-label={`Pesan layanan ${item.name}`}
+                    >
+                      <span>Pesan</span>
+                      <span class="arrow">↗</span>
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+<style is:global>
+.services-section {
+padding: 100px 0;
+}
+
+.services-grid {
+display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+background: var(--color-bg-card);
+    border-radius: 20px;
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 380px;
+    border: 1px solid var(--color-border-soft);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover {
+transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(27, 56, 34, 0.1);
+}
+
+.service-card.is-hero-card {
+background: var(--color-dark-green);
+    color: #ffffff;
+    border-color: transparent;
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(27, 56, 34, 0.16);
+}
+
+.service-card.is-hero-card .card-tag {
+background: var(--color-accent-lime);
+    color: var(--color-dark-green);
+    font-weight: 700;
+}
+
+.service-card.is-hero-card .card-name {
+color: #ffffff;
+}
+
+.service-card.is-hero-card .card-desc {
+color: #cfdec8;
+}
+
+.service-card.is-hero-card .card-footer {
+border-top-color: rgba(255, 255, 255, 0.15);
+}
+
+.service-card.is-hero-card .card-action-btn {
+background: #ffffff;
+    color: var(--color-dark-green);
+}
+
+.card-top {
+display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.card-tag {
+font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(27, 56, 34, 0.08);
+    color: var(--color-dark-green);
+}
+
+.card-time {
+font-family: var(--font-mono);
+    font-size: 0.72rem;
+    opacity: 0.6;
+}
+
+.card-alias {
+font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.card-name {
+font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-dark-green);
+    margin-bottom: 12px;
+}
+
+.card-desc {
+font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+.card-footer {
+display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 26px;
+    padding-top: 18px;
+    border-top: 1px solid var(--color-border-soft);
+}
+
+.price-box {
+display: flex;
+    flex-direction: column;
+}
+
+.price-label {
+font-family: var(--font-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.price-value {
+font-size: 1.35rem;
+    font-weight: 800;
+}
+
+.card-action-btn {
+display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-dark-green);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 999px;
+    transition: transform 0.15s ease;
+}
+
+.card-action-btn:hover {
+transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .services-grid,
+    .values-grid,
+    .addons-grid {
+
+      grid-template-columns: repeat(2, 1fr);
+    
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid,
+    .values-grid,
+    .addons-grid {
+
+      grid-template-columns: 1fr;
+    
+  }
+}
+</style>

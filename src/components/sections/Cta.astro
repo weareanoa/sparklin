@@ -1,0 +1,88 @@
+---
+import { whatsappGeneral } from '../../data/site';
+---
+
+<section class="cta-section">
+        <div class="section-shell">
+          <div class="cta-banner">
+            <div class="cta-content">
+              <h2 class="cta-title">
+                <span class="italic-serif">Siap mulai,</span><br />
+                atau masih mau tanya?
+              </h2>
+              <p class="cta-desc">
+                Mulai gunakan layanan kami atau kirim foto kondisi sepatumu untuk konsultasi gratis. Kami siap bantu!
+              </p>
+              <div class="cta-buttons">
+                <a href={whatsappGeneral} target="_blank" rel="noreferrer" class="btn btn-primary cta-btn">
+                  <span>Chat via WhatsApp</span>
+                  <span class="btn-arrow">↗</span>
+                </a>
+                <a href="https://instagram.com/sparklinshoecare" target="_blank" rel="noreferrer" class="btn btn-outline cta-btn">
+                  <span>Instagram @sparklinshoecare</span>
+                  <span class="btn-arrow">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<style is:global>
+.cta-section {
+padding: 95px 0 110px;
+}
+
+.cta-banner {
+background: var(--color-bg-card);
+    border-radius: 28px;
+    padding: 65px 55px;
+    border: 2px solid rgba(27, 56, 34, 0.15);
+    box-shadow: 0 20px 50px rgba(27, 56, 34, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-title {
+font-size: clamp(2.4rem, 4.6vw, 4.2rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--color-dark-green);
+    margin-bottom: 16px;
+}
+
+.cta-desc {
+font-size: 1.12rem;
+    color: var(--color-text-muted);
+    max-width: 560px;
+    margin-bottom: 32px;
+}
+
+.cta-buttons {
+display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .cta-banner {
+
+      padding: 40px 22px;
+    
+  }
+
+  .cta-buttons {
+
+      flex-direction: column;
+      width: 100%;
+    
+  }
+
+  .cta-btn {
+
+      width: 100%;
+    
+  }
+}
+</style>

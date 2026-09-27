@@ -1,0 +1,245 @@
+---
+import { navLinks, whatsappGeneral } from '../data/site';
+---
+
+<!-- Top Floating Header -->
+    <header class="site-header" id="siteHeader">
+      <div class="nav-container">
+        <!-- Pure SVG Brand Logo -->
+        <a class="nav-brand" href="#beranda" aria-label="Sparklin Shoe Care, kembali ke beranda">
+          <svg viewBox="0 0 240 60" fill="none" class="brand-svg-logo" aria-hidden="true">
+            <defs>
+              <path id="archLogoPath" d="M 20,40 Q 120,12 220,40" />
+            </defs>
+            <text font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="900" letter-spacing="2.5" fill="currentColor">
+              <textPath href="#archLogoPath" startOffset="50%" text-anchor="middle">
+                SPARKLIN
+              </textPath>
+            </text>
+            <!-- Center sparkles -->
+            <path d="M 120,28 Q 120,33 124,33 Q 120,33 120,38 Q 120,33 116,33 Q 120,33 120,28 Z" fill="currentColor" />
+            <text x="120" y="49" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" letter-spacing="3.5" fill="currentColor" opacity="0.9">
+              SHOE CARE
+            </text>
+            <text x="120" y="58" text-anchor="middle" font-family="'Playfair Display', serif" font-style="italic" font-size="6.5" fill="currentColor" opacity="0.65">
+              est. 2024
+            </text>
+          </svg>
+        </a>
+
+        <!-- Floating Capsule Navigation -->
+        <nav class="nav-pill" aria-label="Navigasi menu utama">
+          <ul class="nav-list">
+            {navLinks.map((link) => (
+              <li><a href={link.href} class="nav-item">{link.name}</a></li>
+            ))}
+          </ul>
+          <a href={whatsappGeneral} target="_blank" rel="noreferrer" class="nav-cta-btn">
+            Kontak
+          </a>
+        </nav>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Buka menu navigasi">
+          <span class="bar bar-1"></span>
+          <span class="bar bar-2"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Navigation Drawer -->
+      <div class="mobile-drawer" id="mobile-nav">
+        <ul class="mobile-nav-list">
+          {navLinks.map((link) => (
+            <li><a href={link.href} class="mobile-nav-item">{link.name}</a></li>
+          ))}
+        </ul>
+        <a href={whatsappGeneral} target="_blank" rel="noreferrer" class="mobile-cta-btn">
+          Hubungi via WhatsApp ↗
+        </a>
+      </div>
+    </header>
+
+<style is:global>
+.site-header {
+position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 12px 40px;
+    background: linear-gradient(90deg, #e9eed9 0%, #cfdcba 100%);
+    border-bottom: 1px solid rgba(27, 56, 34, 0.08);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+width: min(1200px, 100%);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.nav-brand {
+display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    color: var(--color-dark-green);
+    transition: opacity 0.2s ease;
+}
+
+.nav-brand:hover {
+opacity: 0.85;
+}
+
+.brand-svg-logo {
+height: 52px;
+    width: auto;
+}
+
+.nav-pill {
+flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-bg-cream);
+    padding: 6px 6px;
+    border-radius: 999px;
+    box-shadow: 0 3px 14px rgba(27, 56, 34, 0.08);
+}
+
+.nav-list {
+flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 12px;
+    list-style: none;
+}
+
+.nav-item {
+font-size: 0.95rem;
+    font-weight: 500;
+    color: #41573f;
+    transition: color 0.15s ease;
+}
+
+.nav-item:hover {
+color: var(--color-dark-green);
+}
+
+.nav-cta-btn {
+background: var(--color-dark-green);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 13px 34px;
+    border-radius: 999px;
+    transition: all 0.2s ease;
+}
+
+.nav-cta-btn:hover {
+background: var(--color-forest-deep);
+    transform: scale(1.02);
+}
+
+.mobile-menu-toggle {
+display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-menu-toggle .bar {
+width: 24px;
+    height: 2.5px;
+    background: var(--color-dark-green);
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.mobile-drawer {
+display: none;
+    position: absolute;
+    top: 100%;
+    left: 16px;
+    right: 16px;
+    background: var(--color-bg-card);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--color-border-soft);
+}
+
+.mobile-drawer.is-open {
+display: block;
+    animation: fadeInDown 0.2s ease forwards;
+}
+
+@keyframes fadeInDown {
+from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-nav-list {
+list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.mobile-nav-item {
+font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-dark-green);
+}
+
+.mobile-cta-btn {
+display: block;
+    text-align: center;
+    background: var(--color-dark-green);
+    color: #ffffff;
+    padding: 14px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .nav-pill {
+
+      display: none;
+    
+  }
+
+  .mobile-menu-toggle {
+
+      display: flex;
+    
+  }
+}
+</style>
+
+<script>
+// 1. Mobile Menu Drawer
+      const toggleBtn = document.querySelector('.mobile-menu-toggle');
+      const drawer = document.querySelector('.mobile-drawer');
+
+      toggleBtn?.addEventListener('click', () => {
+        const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', String(!isOpen));
+        drawer?.classList.toggle('is-open', !isOpen);
+      });
+
+      drawer?.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          toggleBtn?.setAttribute('aria-expanded', 'false');
+          drawer.classList.remove('is-open');
+        });
+      });
+</script>
