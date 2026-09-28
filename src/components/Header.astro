@@ -3,243 +3,343 @@ import { navLinks, whatsappGeneral } from '../data/site';
 ---
 
 <!-- Top Floating Header -->
-    <header class="site-header" id="siteHeader">
-      <div class="nav-container">
-        <!-- Pure SVG Brand Logo -->
-        <a class="nav-brand" href="#beranda" aria-label="Sparklin Shoe Care, kembali ke beranda">
-          <svg viewBox="0 0 240 60" fill="none" class="brand-svg-logo" aria-hidden="true">
-            <defs>
-              <path id="archLogoPath" d="M 20,40 Q 120,12 220,40" />
-            </defs>
-            <text font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="900" letter-spacing="2.5" fill="currentColor">
-              <textPath href="#archLogoPath" startOffset="50%" text-anchor="middle">
-                SPARKLIN
-              </textPath>
-            </text>
-            <!-- Center sparkles -->
-            <path d="M 120,28 Q 120,33 124,33 Q 120,33 120,38 Q 120,33 116,33 Q 120,33 120,28 Z" fill="currentColor" />
-            <text x="120" y="49" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" letter-spacing="3.5" fill="currentColor" opacity="0.9">
-              SHOE CARE
-            </text>
-            <text x="120" y="58" text-anchor="middle" font-family="'Playfair Display', serif" font-style="italic" font-size="6.5" fill="currentColor" opacity="0.65">
-              est. 2024
-            </text>
-          </svg>
-        </a>
+<header class="site-header" id="siteHeader">
+  <div class="nav-container">
 
-        <!-- Floating Capsule Navigation -->
-        <nav class="nav-pill" aria-label="Navigasi menu utama">
-          <ul class="nav-list">
-            {navLinks.map((link) => (
-              <li><a href={link.href} class="nav-item">{link.name}</a></li>
-            ))}
-          </ul>
-          <a href={whatsappGeneral} target="_blank" rel="noreferrer" class="nav-cta-btn">
-            Kontak
-          </a>
-        </nav>
+    <!-- [Mobile] Left placeholder to center the logo via grid -->
+    <div class="nav-spacer" aria-hidden="true"></div>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Buka menu navigasi">
-          <span class="bar bar-1"></span>
-          <span class="bar bar-2"></span>
-        </button>
-      </div>
+    <!-- Brand Logo (centered on mobile, left on desktop) -->
+    <a class="nav-brand" href="#beranda" aria-label="Sparklin Shoe Care, kembali ke beranda">
+      <svg viewBox="0 0 240 60" fill="none" class="brand-svg-logo" aria-hidden="true">
+        <defs>
+          <path id="archLogoPath" d="M 20,40 Q 120,12 220,40" />
+        </defs>
+        <text font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="900" letter-spacing="2.5" fill="currentColor">
+          <textPath href="#archLogoPath" startOffset="50%" text-anchor="middle">
+            SPARKLIN
+          </textPath>
+        </text>
+        <!-- Center sparkles -->
+        <path d="M 120,28 Q 120,33 124,33 Q 120,33 120,38 Q 120,33 116,33 Q 120,33 120,28 Z" fill="currentColor" />
+        <text x="120" y="49" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" letter-spacing="3.5" fill="currentColor" opacity="0.9">
+          SHOE CARE
+        </text>
+        <text x="120" y="58" text-anchor="middle" font-family="'Playfair Display', serif" font-style="italic" font-size="6.5" fill="currentColor" opacity="0.65">
+          est. 2024
+        </text>
+      </svg>
+    </a>
 
-      <!-- Mobile Dropdown Navigation Drawer -->
-      <div class="mobile-drawer" id="mobile-nav">
-        <ul class="mobile-nav-list">
-          {navLinks.map((link) => (
-            <li><a href={link.href} class="mobile-nav-item">{link.name}</a></li>
-          ))}
-        </ul>
-        <a href={whatsappGeneral} target="_blank" rel="noreferrer" class="mobile-cta-btn">
-          Hubungi via WhatsApp ↗
-        </a>
-      </div>
-    </header>
+    <!-- Desktop: Floating Capsule Navigation -->
+    <nav class="nav-pill" aria-label="Navigasi menu utama">
+      <ul class="nav-list">
+        {navLinks.map((link) => (
+          <li><a href={link.href} class="nav-item">{link.name}</a></li>
+        ))}
+      </ul>
+      <a href={whatsappGeneral} target="_blank" rel="noreferrer" class="nav-cta-btn">
+        Kontak
+      </a>
+    </nav>
+
+    <!-- Mobile: Burger Icon Toggle (right edge) -->
+    <button
+      class="mobile-menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      aria-label="Buka menu navigasi"
+      id="burgerBtn"
+    >
+      <span class="burger-icon">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </span>
+    </button>
+
+  </div>
+
+  <!-- Mobile Dropdown Drawer (outside grid, below nav-container) -->
+  <div class="mobile-drawer" id="mobile-nav" aria-label="Menu navigasi">
+    <ul class="mobile-nav-list">
+      {navLinks.map((link) => (
+        <li><a href={link.href} class="mobile-nav-item">{link.name}</a></li>
+      ))}
+    </ul>
+    <a href={whatsappGeneral} target="_blank" rel="noreferrer" class="mobile-cta-btn">
+      Hubungi via WhatsApp ?
+    </a>
+  </div>
+</header>
 
 <style is:global>
+/* Site Header */
 .site-header {
-position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    padding: 12px 40px;
-    background: linear-gradient(90deg, #e9eed9 0%, #cfdcba 100%);
-    border-bottom: 1px solid rgba(27, 56, 34, 0.08);
-    transition: all 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 12px 40px;
+  background: linear-gradient(90deg, #e9eed9 0%, #cfdcba 100%);
+  border-bottom: 1px solid rgba(27, 56, 34, 0.08);
+  transition: all 0.3s ease;
 }
 
+/* Nav Container (desktop: flex) */
 .nav-container {
-width: min(1200px, 100%);
-    margin-inline: auto;
-    display: flex;
-    align-items: center;
-    gap: 48px;
+  width: min(1200px, 100%);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  gap: 48px;
 }
 
+/* Spacer hidden on desktop */
+.nav-spacer {
+  display: none;
+}
+
+/* Brand Logo */
 .nav-brand {
-display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    color: var(--color-dark-green);
-    transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--color-dark-green);
+  transition: opacity 0.2s ease;
 }
 
 .nav-brand:hover {
-opacity: 0.85;
+  opacity: 0.85;
 }
 
 .brand-svg-logo {
-height: 52px;
-    width: auto;
+  height: 52px;
+  width: auto;
 }
 
+/* Desktop Pill Nav */
 .nav-pill {
-flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--color-bg-cream);
-    padding: 6px 6px;
-    border-radius: 999px;
-    box-shadow: 0 3px 14px rgba(27, 56, 34, 0.08);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-bg-cream);
+  padding: 6px 6px;
+  border-radius: 999px;
+  box-shadow: 0 3px 14px rgba(27, 56, 34, 0.08);
 }
 
 .nav-list {
-flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 12px;
-    list-style: none;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 12px;
+  list-style: none;
 }
 
 .nav-item {
-font-size: 0.95rem;
-    font-weight: 500;
-    color: #41573f;
-    transition: color 0.15s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #41573f;
+  transition: color 0.15s ease;
 }
 
 .nav-item:hover {
-color: var(--color-dark-green);
+  color: var(--color-dark-green);
 }
 
 .nav-cta-btn {
-background: var(--color-dark-green);
-    color: #ffffff;
-    font-size: 0.95rem;
-    font-weight: 600;
-    padding: 13px 34px;
-    border-radius: 999px;
-    transition: all 0.2s ease;
+  background: var(--color-dark-green);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 34px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
 }
 
 .nav-cta-btn:hover {
-background: var(--color-forest-deep);
-    transform: scale(1.02);
+  background: var(--color-forest-deep);
+  transform: scale(1.02);
 }
 
+/* Burger Button (hidden on desktop) */
 .mobile-menu-toggle {
-display: none;
-    flex-direction: column;
-    justify-content: center;
-    gap: 6px;
-    width: 44px;
-    height: 44px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.burger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5.5px;
+  width: 26px;
 }
 
 .mobile-menu-toggle .bar {
-width: 24px;
-    height: 2.5px;
-    background: var(--color-dark-green);
-    border-radius: 2px;
-    transition: all 0.2s ease;
+  width: 26px;
+  height: 2.5px;
+  background: var(--color-dark-green);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center;
+  display: block;
 }
 
+/* Burger to X animation */
+.mobile-menu-toggle[aria-expanded="true"] .bar-1 {
+  transform: translateY(8px) rotate(45deg);
+}
+.mobile-menu-toggle[aria-expanded="true"] .bar-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.mobile-menu-toggle[aria-expanded="true"] .bar-3 {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Drawer */
 .mobile-drawer {
-display: none;
-    position: absolute;
-    top: 100%;
-    left: 16px;
-    right: 16px;
-    background: var(--color-bg-card);
-    border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-    border: 1px solid var(--color-border-soft);
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+  margin: 0 16px;
+  background: var(--color-bg-card);
+  border-radius: 0 0 20px 20px;
+  border: 1px solid var(--color-border-soft);
+  border-top: none;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
 }
 
 .mobile-drawer.is-open {
-display: block;
-    animation: fadeInDown 0.2s ease forwards;
-}
-
-@keyframes fadeInDown {
-from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+  max-height: 600px;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .mobile-nav-list {
-list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 20px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 20px 24px 16px;
 }
 
 .mobile-nav-item {
-font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-dark-green);
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-dark-green);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(27, 56, 34, 0.07);
+  transition: color 0.15s ease, padding-left 0.15s ease;
+}
+
+.mobile-nav-item:hover {
+  color: var(--color-forest-deep);
+  padding-left: 6px;
+}
+
+.mobile-nav-list li:last-child .mobile-nav-item {
+  border-bottom: none;
 }
 
 .mobile-cta-btn {
-display: block;
-    text-align: center;
-    background: var(--color-dark-green);
-    color: #ffffff;
-    padding: 14px;
-    border-radius: 999px;
-    font-weight: 700;
+  display: block;
+  text-align: center;
+  background: var(--color-dark-green);
+  color: #ffffff;
+  padding: 14px;
+  margin: 4px 24px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
 
-@media (max-width: 768px) {
-  .nav-pill {
+.mobile-cta-btn:hover {
+  background: var(--color-forest-deep);
+  transform: scale(1.01);
+}
 
-      display: none;
-    
+/* Mobile / Tablet Breakpoint */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 12px 20px;
+  }
+
+  /* 3-column grid: [44px spacer] [logo center] [44px burger] */
+  .nav-container {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+  }
+
+  .nav-spacer {
+    display: block;
+  }
+
+  .nav-brand {
+    justify-self: center;
+  }
+
+  .nav-pill {
+    display: none;
   }
 
   .mobile-menu-toggle {
+    display: flex;
+    justify-self: end;
+  }
 
-      display: flex;
-    
+  .mobile-drawer {
+    margin: 0 12px;
+    border-radius: 0 0 16px 16px;
   }
 }
 </style>
 
 <script>
-// 1. Mobile Menu Drawer
-      const toggleBtn = document.querySelector('.mobile-menu-toggle');
-      const drawer = document.querySelector('.mobile-drawer');
+  const burgerBtn = document.getElementById('burgerBtn');
+  const drawer = document.getElementById('mobile-nav');
+  const header = document.getElementById('siteHeader');
 
-      toggleBtn?.addEventListener('click', () => {
-        const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
-        toggleBtn.setAttribute('aria-expanded', String(!isOpen));
-        drawer?.classList.toggle('is-open', !isOpen);
-      });
+  burgerBtn?.addEventListener('click', () => {
+    const isOpen = burgerBtn.getAttribute('aria-expanded') === 'true';
+    burgerBtn.setAttribute('aria-expanded', String(!isOpen));
+    drawer?.classList.toggle('is-open', !isOpen);
+  });
 
-      drawer?.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-          toggleBtn?.setAttribute('aria-expanded', 'false');
-          drawer.classList.remove('is-open');
-        });
-      });
+  // Close drawer when any link inside it is clicked
+  drawer?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      burgerBtn?.setAttribute('aria-expanded', 'false');
+      drawer.classList.remove('is-open');
+    });
+  });
+
+  // Close drawer when clicking outside the header
+  document.addEventListener('click', (e) => {
+    if (!header?.contains(e.target as Node)) {
+      burgerBtn?.setAttribute('aria-expanded', 'false');
+      drawer?.classList.remove('is-open');
+    }
+  });
 </script>

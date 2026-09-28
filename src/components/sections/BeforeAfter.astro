@@ -1,5 +1,6 @@
 ---
 // BeforeAfter.astro
+import { withBase } from '../../data/site';
 ---
 
 <section class="showcase-section" id="before-after">
@@ -17,7 +18,7 @@
           
           <!-- Base (After Image) -->
           <img
-            src="/images/slider-shoe-box-after.jpg"
+            src={withBase("/images/slider-shoe-box-after.jpg")}
             alt="Hasil sesudah"
             class="slider-img slider-base-img"
             draggable="false"
@@ -27,7 +28,7 @@
           <!-- Overlay (Before Image) -->
           <div class="slider-overlay" id="comparisonOverlay">
             <img
-              src="/images/slider-shoe-box.jpg"
+              src={withBase("/images/slider-shoe-box.jpg")}
               alt="Kondisi sebelum"
               class="slider-img slider-overlay-img"
               draggable="false"
@@ -53,14 +54,14 @@
         <!-- Before Static -->
         <div class="ba-card ba-split-item">
           <div class="ba-card-inner">
-            <img src="/images/slider-shoe-box-1.png" class="static-img img-before" alt="Sebelum" />
+            <img src={withBase("/images/slider-shoe-box-1.png")} class="static-img img-before" alt="Sebelum" />
           </div>
         </div>
 
         <!-- After Static -->
         <div class="ba-card ba-split-item">
           <div class="ba-card-inner">
-            <img src="/images/slider-shoe-box-2.png" class="static-img static-img-2 img-after" alt="Sesudah" />
+            <img src={withBase("/images/slider-shoe-box-2.png")} class="static-img static-img-2 img-after" alt="Sesudah" />
           </div>
         </div>
       </div>

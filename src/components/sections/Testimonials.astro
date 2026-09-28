@@ -18,11 +18,11 @@ import { testimonials, withBase } from '../../data/site';
           <!-- Main Card -->
           <div class="testi-card">
             <div class="testi-avatar-wrapper">
-              <img src={testi.avatar} alt={testi.name} />
+              <img src={withBase(testi.avatar)} alt={testi.name} />
             </div>
             
             <div class="testi-quote-icon">
-              <img src="/images/kutip.png" alt="Quote" />
+              <img src={withBase("/images/kutip.png")} alt="Quote" />
             </div>
 
             <h3 class="testi-author-name">{testi.name.toUpperCase()}</h3>

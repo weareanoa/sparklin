@@ -1,5 +1,5 @@
 ---
-import { whatsappGeneral } from '../data/site';
+import { whatsappGeneral, withBase } from '../data/site';
 ---
 
 <!-- 9. FOOTER -->
@@ -7,7 +7,7 @@ import { whatsappGeneral } from '../data/site';
       <div class="section-shell footer-content">
         <!-- Logo Emblem -->
         <div class="footer-brand">
-          <img src="/images/logo-white.png" alt="Sparklin Shoe Care" class="footer-svg-logo" />
+          <img src={withBase("/images/logo-white.png")} alt="Sparklin Shoe Care" class="footer-svg-logo" />
         </div>
 
         <div class="footer-divider"></div>

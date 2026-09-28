@@ -1,8 +1,9 @@
 ---
 // WhyUs.astro
+import { withBase } from '../../data/site';
 ---
 
-<section class="why-us-section" id="kenapa">
+<section class="why-us-section" id="kenapa" style={`background-image: url('${withBase('/images/2fade.png')}');`}>
   <div class="wu-container">
     <div class="wu-card">
       <!-- Left Column: Typography -->
@@ -50,7 +51,9 @@
 <style is:global>
 .why-us-section {
   padding: 120px 0;
-  background: url('/images/2fade.png') center / 135% no-repeat;
+  background-position: center;
+  background-size: 135%;
+  background-repeat: no-repeat;
   background-color: #467656; /* Fallback color */
 }
 
