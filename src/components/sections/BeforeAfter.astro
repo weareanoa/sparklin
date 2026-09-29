@@ -1,5 +1,4 @@
 ---
-// BeforeAfter.astro
 import { withBase } from '../../data/site';
 ---
 
@@ -12,11 +11,9 @@ import { withBase } from '../../data/site';
     </div>
 
     <div class="ba-layout">
-      <!-- Main Slider -->
       <div class="ba-card ba-main-slider">
         <div class="ba-card-inner" id="beforeAfterSlider">
           
-          <!-- Base (After Image) -->
           <img
             src={withBase("/images/slider-shoe-box-after.jpg")}
             alt="Hasil sesudah"
@@ -25,7 +22,6 @@ import { withBase } from '../../data/site';
           />
           <div class="badge-pill badge-bottom-right">sesudah</div>
 
-          <!-- Overlay (Before Image) -->
           <div class="slider-overlay" id="comparisonOverlay">
             <img
               src={withBase("/images/slider-shoe-box.jpg")}
@@ -36,7 +32,6 @@ import { withBase } from '../../data/site';
             <div class="badge-pill badge-bottom-left">sebelum</div>
           </div>
 
-          <!-- Handle -->
           <div class="slider-handle" id="sliderHandle">
             <div class="handle-line"></div>
             <div class="handle-thumb">
@@ -49,16 +44,13 @@ import { withBase } from '../../data/site';
         </div>
       </div>
 
-      <!-- Bottom Split Images -->
       <div class="ba-split-section">
-        <!-- Before Static -->
         <div class="ba-card ba-split-item">
           <div class="ba-card-inner">
             <img src={withBase("/images/slider-shoe-box-1.png")} class="static-img img-before" alt="Sebelum" />
           </div>
         </div>
 
-        <!-- After Static -->
         <div class="ba-card ba-split-item">
           <div class="ba-card-inner">
             <img src={withBase("/images/slider-shoe-box-2.png")} class="static-img static-img-2 img-after" alt="Sesudah" />
@@ -72,22 +64,23 @@ import { withBase } from '../../data/site';
 
 <style is:global>
 .showcase-section {
-  padding: 100px 0 120px;
+  padding: 95px 0 110px;
   background: linear-gradient(135deg, #eaf0d8 0%, #46865f 100%);
   position: relative;
 }
 
 .showcase-header {
   text-align: left;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 
 .showcase-title {
   font-family: var(--font-sans);
-  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-size: clamp(2rem, 4.8vw, 2.8rem);
   color: #2b5a3f;
   font-weight: 600;
   letter-spacing: -0.5px;
+  line-height: 1.15;
 }
 
 .showcase-title .italic-light {
@@ -103,13 +96,16 @@ import { withBase } from '../../data/site';
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
 }
 
 .ba-card {
-  background: #3e7b56; /* Dark green outer wrapper */
+  background: #38734e;
   border-radius: 28px;
   padding: 12px;
-  box-shadow: 0 20px 50px rgba(43, 90, 63, 0.2);
+  box-shadow: 0 16px 40px rgba(43, 90, 63, 0.2);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .ba-card-inner {
@@ -122,23 +118,24 @@ import { withBase } from '../../data/site';
 }
 
 .ba-main-slider .ba-card-inner {
-  height: 400px;
+  height: 380px;
   cursor: ew-resize;
   user-select: none;
   -webkit-user-select: none;
+  touch-action: pan-y;
 }
 
 .ba-split-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  width: 100%;
 }
 
 .ba-split-item .ba-card-inner {
-  height: 280px;
+  height: 260px;
 }
 
-/* Images */
 .slider-img {
   width: 100%;
   height: 100%;
@@ -148,21 +145,18 @@ import { withBase } from '../../data/site';
 }
 
 .static-img {
-  width: 120%;
-  height: 120%;
-  object-fit: contain; /* Ensures product cutouts fit within the box */
-  object-position: bottom center; /* Menggeser gambar sepatu agar berada di bawah */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
   display: block;
   pointer-events: none;
-  padding: 16px 24px 24px 24px;
+  padding: 16px;
 }
 
 .static-img-2 {
-  width: 140%;
-  height: 100%;
-  transform: scale(1.50) /* Makes the 2nd image larger and pushes it down */
+  transform: scale(1.08);
 }
-
 
 .slider-base-img {
   position: absolute;
@@ -174,45 +168,46 @@ import { withBase } from '../../data/site';
   top: 0;
   left: 0;
   bottom: 0;
-  width: 50%; /* Initial split */
+  width: 50%;
   overflow: hidden;
   z-index: 2;
-  border-right: 1px solid rgba(255,255,255,0.8);
+  border-right: 2px solid rgba(255, 255, 255, 0.9);
 }
 
 .slider-overlay-img {
-  width: 773px; /* Exact width of inner container on desktop to prevent squishing */
+  width: 773px;
   max-width: none;
-  filter: sepia(0.3) saturate(0.5) brightness(0.8); /* Simulated dirty look */
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.3) saturate(0.5) brightness(0.8);
 }
 
 .img-before {
   filter: sepia(0.3) saturate(0.5) brightness(0.8);
 }
 
-/* Badges */
 .badge-pill {
   position: absolute;
-  bottom: 20px;
+  bottom: 16px;
   background: #173f27;
   color: white;
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  padding: 6px 16px;
+  padding: 5px 14px;
   border-radius: 999px;
   z-index: 4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .badge-bottom-left {
-  left: 20px;
+  left: 16px;
 }
 
 .badge-bottom-right {
-  right: 20px;
+  right: 16px;
 }
 
-/* Slider Handle */
 .slider-handle {
   position: absolute;
   top: 0;
@@ -227,74 +222,135 @@ import { withBase } from '../../data/site';
   pointer-events: none;
 }
 
-.handle-line {
-  display: none; /* We use border-right on overlay instead */
-}
-
 .handle-thumb {
-  width: 54px;
-  height: 54px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
   pointer-events: auto;
   cursor: ew-resize;
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, background 0.15s ease;
 }
 
 .handle-thumb:hover, .handle-thumb:active {
-  transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.12);
+  background: rgba(255, 255, 255, 0.45);
 }
 
 @media (max-width: 860px) {
+  .showcase-section {
+    padding: 70px 0 85px;
+  }
+
+  .ba-card {
+    border-radius: 24px;
+    padding: 10px;
+  }
+
+  .ba-card-inner {
+    border-radius: 16px;
+  }
+
   .ba-main-slider .ba-card-inner {
-    height: 300px;
+    height: 280px;
   }
-  .slider-overlay-img {
-    width: calc(100vw - 64px); /* Fallback for mobile width */
-  }
+
   .ba-split-item .ba-card-inner {
-    height: 200px;
-  }
-  .showcase-title {
-    padding: 0 20px;
+    height: 190px;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+  .showcase-section {
+    padding: 50px 0 60px;
+  }
+
+  .showcase-header {
+    margin-bottom: 20px;
+  }
+
+  .ba-card {
+    border-radius: 20px;
+    padding: 8px;
+  }
+
+  .ba-card-inner {
+    border-radius: 14px;
+  }
+
+  .ba-main-slider .ba-card-inner {
+    height: 220px;
+  }
+
   .ba-split-section {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .ba-split-item .ba-card-inner {
+    height: 170px;
+  }
+
+  .handle-thumb {
+    width: 38px;
+    height: 38px;
+  }
+
+  .handle-thumb svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .badge-pill {
+    bottom: 10px;
+    padding: 3px 10px;
+    font-size: 0.68rem;
+  }
+
+  .badge-bottom-left {
+    left: 10px;
+  }
+
+  .badge-bottom-right {
+    right: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .ba-main-slider .ba-card-inner {
+    height: 190px;
+  }
+
+  .ba-split-item .ba-card-inner {
+    height: 150px;
   }
 }
 </style>
 
 <script>
-  // Interactive Before & After Slider
-  const slider = document.getElementById('beforeAfterSlider');
-  const overlay = document.getElementById('comparisonOverlay');
-  const handle = document.getElementById('sliderHandle');
+  const initSlider = () => {
+    const slider = document.getElementById('beforeAfterSlider');
+    const overlay = document.getElementById('comparisonOverlay');
+    const handle = document.getElementById('sliderHandle');
 
-  if (slider && overlay && handle) {
+    if (!slider || !overlay || !handle) return;
+
     let isDragging = false;
-
-    // We dynamically update the overlay width and handle position
-    // Also, we update the overlay image width to precisely match the slider container width
     const overlayImg = overlay.querySelector('.slider-overlay-img') as HTMLImageElement;
 
     const updateDimensions = () => {
-      if(overlayImg && slider) {
+      if (overlayImg && slider) {
         overlayImg.style.width = `${slider.getBoundingClientRect().width}px`;
       }
-    }
-    
-    // Initial resize and bind
+    };
+
     updateDimensions();
     window.addEventListener('resize', updateDimensions);
 
@@ -309,9 +365,8 @@ import { withBase } from '../../data/site';
       return ((clientX - rect.left) / rect.width) * 100;
     };
 
-    const startDrag = (e: Event) => {
+    const startDrag = (e: MouseEvent | TouchEvent) => {
       isDragging = true;
-      e.preventDefault();
     };
 
     const stopDrag = () => {
@@ -323,15 +378,27 @@ import { withBase } from '../../data/site';
       updatePosition(getPercent(clientX));
     };
 
-    slider.addEventListener('mousedown', startDrag);
+    slider.addEventListener('mousedown', (e) => {
+      startDrag(e);
+      moveDrag(e.clientX);
+    });
     window.addEventListener('mouseup', stopDrag);
     window.addEventListener('mousemove', (e) => moveDrag(e.clientX));
 
-    slider.addEventListener('touchstart', startDrag, { passive: false });
+    slider.addEventListener('touchstart', (e) => {
+      startDrag(e);
+      if (e.touches[0]) moveDrag(e.touches[0].clientX);
+    }, { passive: true });
     window.addEventListener('touchend', stopDrag);
     window.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
-      moveDrag(e.touches[0].clientX);
+      if (e.touches[0]) moveDrag(e.touches[0].clientX);
     }, { passive: true });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSlider);
+  } else {
+    initSlider();
   }
 </script>

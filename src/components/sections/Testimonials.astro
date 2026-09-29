@@ -12,10 +12,8 @@ import { testimonials, withBase } from '../../data/site';
     <div class="testimonials-grid">
       {testimonials.map((testi, i) => (
         <div class="testi-item">
-          <!-- Dark green blob (rotated) -->
           <div class={`testi-blob blob-${i}`}></div>
           
-          <!-- Main Card -->
           <div class="testi-card">
             <div class="testi-avatar-wrapper">
               <img src={withBase(testi.avatar)} alt={testi.name} />
@@ -29,7 +27,6 @@ import { testimonials, withBase } from '../../data/site';
             <p class="testi-text">{testi.quote}</p>
           </div>
 
-          <!-- Stars Pill (Overlapping Bottom) -->
           <div class="testi-stars-pill">
             <span class="star">★</span>
             <span class="star">★</span>
@@ -45,55 +42,58 @@ import { testimonials, withBase } from '../../data/site';
 
 <style is:global>
 .testimonials-section {
-  padding: 120px 0;
-  background: #fdfceb; /* matching the cream background perfectly */
-  overflow: hidden; /* prevent blobs causing horizontal scroll */
+  padding: 100px 0 110px;
+  background: #fdfceb;
+  overflow: hidden;
+  position: relative;
 }
 
 .testi-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
+  text-align: center;
 }
 
 .testi-title {
   font-family: var(--font-sans);
   font-style: italic;
   font-weight: 800;
-  font-size: clamp(3rem, 6vw, 4rem);
-  color: #4e8761;
-  letter-spacing: -2px;
-  margin-bottom: 4px;
+  font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+  color: #275735;
+  letter-spacing: -1.5px;
+  margin-bottom: 6px;
   text-transform: uppercase;
   line-height: 1;
 }
 
 .testi-pill-badge {
-  background: linear-gradient(180deg, #48825c 0%, #639d75 100%);
-  color: white;
+  background: linear-gradient(180deg, #38734e 0%, #285437 100%);
+  color: #ffffff;
   font-family: var(--font-sans);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
-  padding: 10px 80px;
+  padding: 8px 48px;
   border-radius: 999px;
-  box-shadow: none;
+  box-shadow: 0 4px 14px rgba(39, 87, 53, 0.2);
 }
 
 .testimonials-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 140px;
+  gap: 120px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
 .testi-item {
   position: relative;
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin-top: 40px;
+  margin-bottom: 25px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .testi-blob {
@@ -102,28 +102,29 @@ import { testimonials, withBase } from '../../data/site';
   left: 0;
   width: 100%;
   height: 100%;
-  background: #4d845e; /* Lighter olive green */
+  background: #38734e;
   border-radius: 28px;
   z-index: 1;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25); /* Added thicker shadow to the blob */
+  box-shadow: 0 16px 36px rgba(27, 65, 38, 0.25);
+  transition: transform 0.3s ease;
 }
 
-/* More pronounced rotations */
-.blob-0 { transform: rotate(14deg); } /* Miring ke kanan */
-.blob-1 { transform: rotate(-14deg); } /* Miring ke kiri */
-.blob-2 { transform: rotate(14deg); } /* Miring ke kanan */
+.blob-0 { transform: rotate(12deg); }
+.blob-1 { transform: rotate(-12deg); }
+.blob-2 { transform: rotate(12deg); }
 
 .testi-card {
   position: relative;
   background: #fdfceb;
+  border: 1.5px solid rgba(39, 87, 53, 0.12);
   border-radius: 28px;
-  padding: 45px 28px 35px;
+  padding: 44px 26px 32px;
   height: 100%;
   z-index: 2;
   display: flex;
   flex-direction: column;
   text-align: left;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25); /* Stronger outer shadow */
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
 }
 
 .testi-avatar-wrapper {
@@ -131,12 +132,13 @@ import { testimonials, withBase } from '../../data/site';
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 85px;
-  height: 85px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  border: 8px solid #fdfceb;
+  border: 6px solid #fdfceb;
   background: #fdfceb;
   overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 .testi-avatar-wrapper img {
@@ -146,32 +148,32 @@ import { testimonials, withBase } from '../../data/site';
 }
 
 .testi-quote-icon {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   margin-top: 0;
 }
 
 .testi-quote-icon img {
-  width: 40px;
+  width: 36px;
   height: auto;
   object-fit: contain;
 }
 
 .testi-author-name {
   font-family: var(--font-sans);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  color: #48825c;
-  margin-bottom: 10px;
+  color: #275735;
+  margin-bottom: 8px;
   letter-spacing: 0.5px;
 }
 
 .testi-text {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.6;
-  color: #79a286;
+  color: #3b6649;
   font-weight: 500;
   flex: 1;
-  text-align: justify;
+  text-align: left;
 }
 
 .testi-stars-pill {
@@ -180,38 +182,120 @@ import { testimonials, withBase } from '../../data/site';
   left: 50%;
   transform: translate(-50%, 50%);
   background: #fdfceb;
-  padding: 10px 24px;
+  padding: 8px 22px;
   border-radius: 999px;
   display: flex;
-  gap: 8px;
+  gap: 6px;
   align-items: center;
   z-index: 3;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35); /* Shadow lebih tebal/pekat */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(39, 87, 53, 0.1);
 }
 
 .testi-stars-pill .star {
-  color: #48825c;
-  font-size: 1.25rem;
+  color: #275735;
+  font-size: 1.15rem;
 }
 
 .testi-stars-pill .star:nth-child(3) {
-  font-size: 1.7rem; /* Make the middle star larger */
-  transform: translateY(-2px); /* optionally lift it slightly */
+  font-size: 1.55rem;
+  transform: translateY(-2px);
 }
 
-/* Specific overrides for the middle card */
 .testi-item:nth-child(2) .testi-blob {
-  background: rgb(11, 61, 30);
+  background: #1f472b;
 }
 
 .testi-item:nth-child(2) .star {
-  color: rgb(11, 61, 30);
+  color: #1f472b;
 }
 
 @media (max-width: 1024px) {
+  .testimonials-section {
+    padding: 70px 0 85px;
+  }
+
+  .testi-header {
+    margin-bottom: 60px;
+  }
+
   .testimonials-grid {
     grid-template-columns: 1fr;
-    gap: 120px;
+    gap: 80px;
+    max-width: 440px;
+  }
+
+  .blob-0 { transform: rotate(7deg); }
+  .blob-1 { transform: rotate(-7deg); }
+  .blob-2 { transform: rotate(7deg); }
+}
+
+@media (max-width: 640px) {
+  .testimonials-section {
+    padding: 50px 0 65px;
+  }
+
+  .testi-header {
+    margin-bottom: 50px;
+  }
+
+  .testi-pill-badge {
+    padding: 7px 24px;
+    font-size: 0.88rem;
+    max-width: calc(100% - 32px);
+    text-align: center;
+  }
+
+  .testimonials-grid {
+    gap: 70px;
+    max-width: 100%;
+    padding-inline: 10px;
+  }
+
+  .testi-item {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .testi-card {
+    padding: 38px 20px 28px;
+    border-radius: 22px;
+  }
+
+  .testi-blob {
+    border-radius: 22px;
+  }
+
+  .blob-0 { transform: rotate(5deg); }
+  .blob-1 { transform: rotate(-5deg); }
+  .blob-2 { transform: rotate(5deg); }
+
+  .testi-avatar-wrapper {
+    width: 68px;
+    height: 68px;
+    border-width: 5px;
+  }
+
+  .testi-author-name {
+    font-size: 1rem;
+  }
+
+  .testi-text {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .testi-stars-pill {
+    padding: 6px 18px;
+    gap: 5px;
+  }
+
+  .testi-stars-pill .star {
+    font-size: 1rem;
+  }
+
+  .testi-stars-pill .star:nth-child(3) {
+    font-size: 1.35rem;
   }
 }
 </style>

@@ -4,14 +4,11 @@ import { whatsappGeneral, withBase } from '../../data/site';
 
 <section class="hero-section" id="beranda">
   <div class="hero-shell">
-    
-    <!-- 1. Main Title -->
     <h1 class="hero-title">
       Step up,<br />
       <span class="italic-title">Stand</span> out.
     </h1>
 
-    <!-- 2. Middle Visual Band: SPARKLIN Text with Sneakers Overlapping Beside It -->
     <div class="hero-visual-band">
       <div class="hero-sparklin-banner" aria-hidden="true">
         <span class="hero-sparklin-text">SPARKLIN</span>
@@ -29,7 +26,6 @@ import { whatsappGeneral, withBase } from '../../data/site';
       </div>
     </div>
 
-    <!-- 3. Bottom Content: Description & CTA Actions (Guaranteed below SPARKLIN & shoes) -->
     <div class="hero-bottom-content">
       <p class="hero-desc">
         Perawatan sepatu di Bandung sejak 2024. Cuci, hilangkan noda, dan perbaikan dengan pendekatan ramah lingkungan untuk mahasiswa dan penggemar sneakers.
@@ -46,16 +42,10 @@ import { whatsappGeneral, withBase } from '../../data/site';
         </a>
       </div>
     </div>
-
   </div>
 </section>
 
 <style is:global>
-/*
-  ANTI-FOUT: Override font-display for Montserrat 900 via @font-face.
-  This ensures the browser BLOCKS rendering until the font is ready,
-  preventing any layout shift for the SPARKLIN watermark text.
-*/
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -86,7 +76,6 @@ import { whatsappGeneral, withBase } from '../../data/site';
   flex-direction: column;
 }
 
-/* 1. Main Title */
 .hero-title {
   font-family: var(--font-sans);
   font-size: clamp(2.6rem, 4.4vw, 4.2rem);
@@ -102,15 +91,9 @@ import { whatsappGeneral, withBase } from '../../data/site';
   font-weight: 400;
 }
 
-/* 2. Middle Visual Band (SPARKLIN Text + Overlapping Shoes on the Right) */
 .hero-visual-band {
   position: relative;
   width: 100%;
-  /*
-    Height is calculated from font-size × line-height (0.82).
-    Using the same clamp so it always matches the text height.
-    min-height prevents it from collapsing while font loads.
-  */
   height: clamp(90px, 14vw, 190px);
   min-height: 90px;
   display: flex;
@@ -134,7 +117,6 @@ import { whatsappGeneral, withBase } from '../../data/site';
   display: block;
   font-family: 'Montserrat', 'Arial Black', Impact, sans-serif;
   font-weight: 900;
-  /* Single font-size declaration using clamp — no redundant fallback */
   font-size: clamp(4.5rem, 13.5vw, 13.5rem);
   color: #cfdebe;
   letter-spacing: -0.01em;
@@ -143,11 +125,9 @@ import { whatsappGeneral, withBase } from '../../data/site';
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  /* Prevent invisible text during font load (works with font-display: block) */
   visibility: inherit;
 }
 
-/* Shoes Container overlapping on the right side of the SPARKLIN text */
 .hero-sneaker-container {
   position: absolute;
   right: 0;
@@ -179,7 +159,6 @@ import { whatsappGeneral, withBase } from '../../data/site';
   filter: drop-shadow(0 25px 40px rgba(27, 56, 34, 0.28));
 }
 
-/* 3. Bottom Content (Description & Actions) */
 .hero-bottom-content {
   position: relative;
   z-index: 2;
@@ -203,7 +182,6 @@ import { whatsappGeneral, withBase } from '../../data/site';
   flex-wrap: wrap;
 }
 
-/* Tablet / Medium Breakpoints */
 @media (max-width: 1024px) {
   .hero-section {
     padding-top: 110px;
@@ -227,7 +205,6 @@ import { whatsappGeneral, withBase } from '../../data/site';
   }
 }
 
-/* Mobile Breakpoints */
 @media (max-width: 600px) {
   .hero-section {
     padding-top: 95px;

@@ -13,7 +13,6 @@ import { services, whatsappBase } from '../../data/site';
             </p>
           </div>
 
-          <!-- Services Grid -->
           <div class="services-grid">
             {services.map((item) => {
               const waUrl = `${whatsappBase}${encodeURIComponent(`Halo Sparklin, saya ingin booking layanan ${item.name} (${item.price}).`)}`;
@@ -55,170 +54,229 @@ import { services, whatsappBase } from '../../data/site';
 
 <style is:global>
 .services-section {
-padding: 100px 0;
+  padding: 90px 0;
+  position: relative;
 }
 
 .services-grid {
-display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .service-card {
-background: var(--color-bg-card);
-    border-radius: 20px;
-    padding: 30px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 380px;
-    border: 1px solid var(--color-border-soft);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--color-bg-card);
+  border-radius: 24px;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+  border: 1.5px solid rgba(43, 90, 63, 0.12);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(27, 56, 34, 0.04);
 }
 
 .service-card:hover {
-transform: translateY(-6px);
-    box-shadow: 0 16px 36px rgba(27, 56, 34, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(27, 56, 34, 0.12);
+  border-color: rgba(43, 90, 63, 0.25);
 }
 
 .service-card.is-hero-card {
-background: var(--color-dark-green);
-    color: #ffffff;
-    border-color: transparent;
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(27, 56, 34, 0.16);
+  background: linear-gradient(155deg, #346c45 0%, #255333 100%);
+  color: #ffffff;
+  border-color: rgba(176, 212, 58, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(27, 65, 38, 0.22);
+}
+
+.service-card.is-hero-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(27, 65, 38, 0.3);
 }
 
 .service-card.is-hero-card .card-tag {
-background: var(--color-accent-lime);
-    color: var(--color-dark-green);
-    font-weight: 700;
+  background: var(--color-accent-lime);
+  color: #1a4025;
+  font-weight: 700;
 }
 
 .service-card.is-hero-card .card-name {
-color: #ffffff;
+  color: #ffffff;
+}
+
+.service-card.is-hero-card .card-alias {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.service-card.is-hero-card .card-time {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .service-card.is-hero-card .card-desc {
-color: #cfdec8;
+  color: #dbe7dc;
 }
 
 .service-card.is-hero-card .card-footer {
-border-top-color: rgba(255, 255, 255, 0.15);
+  border-top-color: rgba(255, 255, 255, 0.18);
+}
+
+.service-card.is-hero-card .price-label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.service-card.is-hero-card .price-value {
+  color: #ffffff;
 }
 
 .service-card.is-hero-card .card-action-btn {
-background: #ffffff;
-    color: var(--color-dark-green);
+  background: #ffffff;
+  color: #214b2d;
+  font-weight: 700;
+}
+
+.service-card.is-hero-card .card-action-btn:hover {
+  background: var(--color-accent-lime);
+  color: #163820;
 }
 
 .card-top {
-display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  gap: 8px;
 }
 
 .card-tag {
-font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(27, 56, 34, 0.08);
-    color: var(--color-dark-green);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(43, 90, 63, 0.1);
+  color: #265333;
 }
 
 .card-time {
-font-family: var(--font-mono);
-    font-size: 0.72rem;
-    opacity: 0.6;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #557960;
+  font-weight: 500;
 }
 
 .card-alias {
-font-family: var(--font-mono);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    opacity: 0.7;
-    display: block;
-    margin-bottom: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5a8065;
+  display: block;
+  margin-bottom: 6px;
 }
 
 .card-name {
-font-size: 1.45rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--color-dark-green);
-    margin-bottom: 12px;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1e452a;
+  margin-bottom: 12px;
+  line-height: 1.2;
 }
 
 .card-desc {
-font-size: 0.88rem;
-    line-height: 1.6;
-    color: var(--color-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #43694f;
 }
 
 .card-footer {
-display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 26px;
-    padding-top: 18px;
-    border-top: 1px solid var(--color-border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(43, 90, 63, 0.12);
+  gap: 8px;
 }
 
 .price-box {
-display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .price-label {
-font-family: var(--font-mono);
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    opacity: 0.7;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  color: #5a8065;
+  font-weight: 600;
 }
 
 .price-value {
-font-size: 1.35rem;
-    font-weight: 800;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1e452a;
 }
 
 .card-action-btn {
-display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--color-dark-green);
-    color: #ffffff;
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 8px 16px;
-    border-radius: 999px;
-    transition: transform 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #275735;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
 .card-action-btn:hover {
-transform: scale(1.05);
+  background: #1a3d24;
+  transform: scale(1.04);
 }
 
 @media (max-width: 1024px) {
-  .services-grid,
-    .values-grid,
-    .addons-grid {
+  .services-section {
+    padding: 70px 0;
+  }
 
-      grid-template-columns: repeat(2, 1fr);
-    
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
   }
 }
 
-@media (max-width: 768px) {
-  .services-grid,
-    .values-grid,
-    .addons-grid {
+@media (max-width: 640px) {
+  .services-section {
+    padding: 50px 0;
+  }
 
-      grid-template-columns: 1fr;
-    
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-card {
+    padding: 24px 20px;
+    min-height: auto;
+    border-radius: 20px;
+  }
+
+  .service-card.is-hero-card {
+    transform: none;
+  }
+
+  .card-name {
+    font-size: 1.3rem;
+  }
+
+  .card-footer {
+    margin-top: 20px;
+    padding-top: 14px;
   }
 }
 </style>

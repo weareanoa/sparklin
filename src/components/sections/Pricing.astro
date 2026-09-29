@@ -13,7 +13,6 @@ import { pricingPackages, addOns, whatsappBase } from '../../data/site';
             </p>
           </div>
 
-          <!-- Pricing Packages Grid -->
           <div class="pricing-grid">
             {pricingPackages.map((pkg) => {
               const waUrl = `${whatsappBase}${encodeURIComponent(pkg.waMessage)}`;
@@ -48,7 +47,6 @@ import { pricingPackages, addOns, whatsappBase } from '../../data/site';
             })}
           </div>
 
-          <!-- Addons Grid -->
           <div class="addons-container">
             <h3 class="addons-heading">Layanan Tambahan (Add-on)</h3>
             <div class="addons-grid">
@@ -73,231 +71,402 @@ import { pricingPackages, addOns, whatsappBase } from '../../data/site';
 
 <style is:global>
 .pricing-section {
-background-color: var(--color-forest-deep);
-    padding: 100px 0;
-    color: #ffffff;
+  background: linear-gradient(165deg, #275234 0%, #1e4228 55%, #15321e 100%);
+  padding: 95px 0;
+  color: #ffffff;
+  position: relative;
 }
 
 .pricing-grid {
-display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 50px;
 }
 
 .pricing-card {
-background: #173822;
-    border-radius: 24px;
-    padding: 38px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    position: relative;
-    transition: transform 0.3s ease;
+  background: #254d31;
+  border-radius: 26px;
+  padding: 38px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(244, 246, 236, 0.14);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
 }
 
 .pricing-card.is-highlight {
-background: #1e472c;
-    border: 2px solid var(--color-accent-lime);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
-    transform: translateY(-6px);
+  background: linear-gradient(150deg, #2d633e 0%, #224d30 100%);
+  border: 2px solid var(--color-accent-lime);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  transform: translateY(-6px);
+}
+
+.pricing-card.is-highlight:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4);
 }
 
 .pricing-badge {
-position: absolute;
-    top: -14px;
-    right: 28px;
-    background: var(--color-accent-lime);
-    color: var(--color-dark-green);
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    font-weight: 700;
-    padding: 5px 14px;
-    border-radius: 999px;
+  position: absolute;
+  top: -13px;
+  right: 24px;
+  background: var(--color-accent-lime);
+  color: #173b22;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .package-name {
-font-size: 1.55rem;
-    font-weight: 800;
-    margin-bottom: 8px;
+  font-size: 1.55rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #ffffff;
 }
 
 .package-desc {
-font-size: 0.88rem;
-    color: #bfd4c2;
-    margin-bottom: 22px;
-    min-height: 44px;
+  font-size: 0.88rem;
+  color: #d1e2d4;
+  margin-bottom: 22px;
+  min-height: 44px;
+  line-height: 1.5;
 }
 
 .package-price {
-display: flex;
-    align-items: baseline;
-    gap: 6px;
-    margin-bottom: 26px;
-    padding-bottom: 22px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .package-price .currency {
-font-size: 1.1rem;
-    font-weight: 600;
-    color: #a7c5ae;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #b7d6be;
 }
 
 .package-price .amount {
-font-size: 2.7rem;
-    font-weight: 800;
-    line-height: 1;
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #ffffff;
 }
 
 .package-price .unit {
-font-size: 0.85rem;
-    color: #a7c5ae;
+  font-size: 0.85rem;
+  color: #b7d6be;
 }
 
 .package-features {
-list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-bottom: 34px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-bottom: 32px;
 }
 
 .package-features li {
-display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.9rem;
-    color: #e5ece6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #eaf0eb;
+  line-height: 1.4;
 }
 
 .feat-check {
-color: var(--color-accent-lime);
-    font-weight: 800;
+  color: var(--color-accent-lime);
+  font-weight: 800;
+  font-size: 1.05rem;
+  flex-shrink: 0;
 }
 
 .btn-order {
-display: block;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    padding: 14px;
-    border-radius: 999px;
-    font-weight: 700;
-    transition: all 0.2s ease;
+  display: block;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  padding: 13px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
 .btn-order:hover {
-background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
 }
 
 .btn-order-highlight {
-background: var(--color-accent-lime);
-    color: var(--color-dark-green);
+  background: var(--color-accent-lime);
+  color: #173b22;
+  border: none;
+  font-weight: 800;
 }
 
 .btn-order-highlight:hover {
-background: #c3e843;
-    color: var(--color-dark-green);
+  background: #c3e843;
+  color: #173b22;
 }
 
 .addons-container {
-background: rgba(255, 255, 255, 0.04);
-    border-radius: 24px;
-    padding: 36px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 26px;
+  padding: 34px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .addons-heading {
-font-size: 1.25rem;
-    font-weight: 800;
-    margin-bottom: 22px;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
 .addons-grid {
-display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
 }
 
 .addon-card {
-background: #193a23;
-    border-radius: 16px;
-    padding: 18px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #254d31;
+  border-radius: 18px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid rgba(244, 246, 236, 0.12);
+  transition: all 0.2s ease;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.addon-card:hover {
+  background: #2b5939;
+  border-color: rgba(176, 212, 58, 0.35);
+  transform: translateY(-2px);
 }
 
 .addon-icon-box {
-width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    background: rgba(176, 212, 58, 0.15);
-    color: var(--color-accent-lime);
-    display: grid;
-    place-items: center;
-    font-weight: 800;
-    font-size: 1.1rem;
-    flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(176, 212, 58, 0.15);
+  color: var(--color-accent-lime);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
 }
 
 .addon-info {
-flex: 1;
+  flex: 1;
+  min-width: 0;
 }
 
 .addon-title {
-font-size: 0.88rem;
-    font-weight: 800;
-    margin-bottom: 2px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  word-break: break-word;
 }
 
 .addon-desc {
-font-size: 0.72rem;
-    color: #a7bfae;
-    line-height: 1.4;
+  font-size: 0.74rem;
+  color: #bad0c0;
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 .addon-price {
-font-family: var(--font-mono);
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--color-accent-lime);
-    flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-accent-lime);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .addon-action {
-display: grid;
-    place-items: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    font-weight: 800;
-    flex-shrink: 0;
-    transition: all 0.2s ease;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-weight: 800;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
 .addon-action:hover {
-background: var(--color-accent-lime);
-    color: var(--color-dark-green);
+  background: var(--color-accent-lime);
+  color: #173b22;
+  transform: scale(1.08);
 }
 
 @media (max-width: 1024px) {
-  .pricing-grid {
+  .pricing-section {
+    padding: 70px 0;
+  }
 
-      grid-template-columns: 1fr;
-    
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    max-width: 540px;
+    margin-inline: auto;
+    margin-bottom: 40px;
   }
 
   .pricing-card.is-highlight {
+    transform: none;
+  }
 
-      transform: none;
-    
+  .addons-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-section {
+    padding: 50px 0 60px;
+  }
+
+  .pricing-card {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+
+  .pricing-badge {
+    top: -11px;
+    right: 18px;
+    font-size: 0.68rem;
+    padding: 4px 10px;
+  }
+
+  .package-name {
+    font-size: 1.35rem;
+  }
+
+  .package-desc {
+    min-height: auto;
+    margin-bottom: 16px;
+    font-size: 0.84rem;
+  }
+
+  .package-price {
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+  }
+
+  .package-price .amount {
+    font-size: 2.2rem;
+  }
+
+  .package-features {
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .package-features li {
+    font-size: 0.85rem;
+  }
+
+  .addons-container {
+    padding: 22px 14px;
+    border-radius: 20px;
+  }
+
+  .addons-heading {
+    font-size: 1.15rem;
+    margin-bottom: 14px;
+  }
+
+  .addon-card {
+    padding: 12px 12px;
+    border-radius: 14px;
+    gap: 10px;
+  }
+
+  .addon-icon-box {
+    width: 30px;
+    height: 30px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+  }
+
+  .addon-title {
+    font-size: 0.8rem;
+  }
+
+  .addon-desc {
+    font-size: 0.7rem;
+  }
+
+  .addon-price {
+    font-size: 0.88rem;
+  }
+
+  .addon-action {
+    width: 28px;
+    height: 28px;
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .addon-card {
+    padding: 10px 10px;
+    gap: 8px;
+  }
+
+  .addon-icon-box {
+    width: 26px;
+    height: 26px;
+    font-size: 0.85rem;
+  }
+
+  .addon-title {
+    font-size: 0.75rem;
+  }
+
+  .addon-desc {
+    font-size: 0.66rem;
+  }
+
+  .addon-price {
+    font-size: 0.82rem;
+  }
+
+  .addon-action {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
   }
 }
 </style>

@@ -2,14 +2,10 @@
 import { navLinks, whatsappGeneral } from '../data/site';
 ---
 
-<!-- Top Floating Header -->
 <header class="site-header" id="siteHeader">
   <div class="nav-container">
-
-    <!-- [Mobile] Left placeholder to center the logo via grid -->
     <div class="nav-spacer" aria-hidden="true"></div>
 
-    <!-- Brand Logo (centered on mobile, left on desktop) -->
     <a class="nav-brand" href="#beranda" aria-label="Sparklin Shoe Care, kembali ke beranda">
       <svg viewBox="0 0 240 60" fill="none" class="brand-svg-logo" aria-hidden="true">
         <defs>
@@ -20,7 +16,6 @@ import { navLinks, whatsappGeneral } from '../data/site';
             SPARKLIN
           </textPath>
         </text>
-        <!-- Center sparkles -->
         <path d="M 120,28 Q 120,33 124,33 Q 120,33 120,38 Q 120,33 116,33 Q 120,33 120,28 Z" fill="currentColor" />
         <text x="120" y="49" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" letter-spacing="3.5" fill="currentColor" opacity="0.9">
           SHOE CARE
@@ -31,7 +26,6 @@ import { navLinks, whatsappGeneral } from '../data/site';
       </svg>
     </a>
 
-    <!-- Desktop: Floating Capsule Navigation -->
     <nav class="nav-pill" aria-label="Navigasi menu utama">
       <ul class="nav-list">
         {navLinks.map((link) => (
@@ -43,7 +37,6 @@ import { navLinks, whatsappGeneral } from '../data/site';
       </a>
     </nav>
 
-    <!-- Mobile: Burger Icon Toggle (right edge) -->
     <button
       class="mobile-menu-toggle"
       type="button"
@@ -58,10 +51,8 @@ import { navLinks, whatsappGeneral } from '../data/site';
         <span class="bar bar-3"></span>
       </span>
     </button>
-
   </div>
 
-  <!-- Mobile Dropdown Drawer (outside grid, below nav-container) -->
   <div class="mobile-drawer" id="mobile-nav" aria-label="Menu navigasi">
     <ul class="mobile-nav-list">
       {navLinks.map((link) => (
@@ -75,7 +66,6 @@ import { navLinks, whatsappGeneral } from '../data/site';
 </header>
 
 <style is:global>
-/* Site Header */
 .site-header {
   position: fixed;
   top: 0;
@@ -88,7 +78,6 @@ import { navLinks, whatsappGeneral } from '../data/site';
   transition: all 0.3s ease;
 }
 
-/* Nav Container (desktop: flex) */
 .nav-container {
   width: min(1200px, 100%);
   margin-inline: auto;
@@ -97,12 +86,10 @@ import { navLinks, whatsappGeneral } from '../data/site';
   gap: 48px;
 }
 
-/* Spacer hidden on desktop */
 .nav-spacer {
   display: none;
 }
 
-/* Brand Logo */
 .nav-brand {
   display: flex;
   align-items: center;
@@ -120,7 +107,6 @@ import { navLinks, whatsappGeneral } from '../data/site';
   width: auto;
 }
 
-/* Desktop Pill Nav */
 .nav-pill {
   flex: 1;
   display: flex;
@@ -167,7 +153,6 @@ import { navLinks, whatsappGeneral } from '../data/site';
   transform: scale(1.02);
 }
 
-/* Burger Button (hidden on desktop) */
 .mobile-menu-toggle {
   display: none;
   align-items: center;
@@ -199,7 +184,6 @@ import { navLinks, whatsappGeneral } from '../data/site';
   display: block;
 }
 
-/* Burger to X animation */
 .mobile-menu-toggle[aria-expanded="true"] .bar-1 {
   transform: translateY(8px) rotate(45deg);
 }
@@ -211,7 +195,6 @@ import { navLinks, whatsappGeneral } from '../data/site';
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Mobile Drawer */
 .mobile-drawer {
   overflow: hidden;
   max-height: 0;
@@ -277,13 +260,11 @@ import { navLinks, whatsappGeneral } from '../data/site';
   transform: scale(1.01);
 }
 
-/* Mobile / Tablet Breakpoint */
 @media (max-width: 768px) {
   .site-header {
     padding: 12px 20px;
   }
 
-  /* 3-column grid: [44px spacer] [logo center] [44px burger] */
   .nav-container {
     display: grid;
     grid-template-columns: 44px 1fr 44px;
@@ -327,7 +308,6 @@ import { navLinks, whatsappGeneral } from '../data/site';
     drawer?.classList.toggle('is-open', !isOpen);
   });
 
-  // Close drawer when any link inside it is clicked
   drawer?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       burgerBtn?.setAttribute('aria-expanded', 'false');
@@ -335,7 +315,6 @@ import { navLinks, whatsappGeneral } from '../data/site';
     });
   });
 
-  // Close drawer when clicking outside the header
   document.addEventListener('click', (e) => {
     if (!header?.contains(e.target as Node)) {
       burgerBtn?.setAttribute('aria-expanded', 'false');

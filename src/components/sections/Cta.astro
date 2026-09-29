@@ -5,7 +5,6 @@ import { whatsappGeneral } from '../../data/site';
 <section class="cta-section">
   <div class="section-shell">
     <div class="cta-banner">
-      <div class="cta-bg-shadow"></div>
       <div class="cta-left">
         <h2 class="cta-title">
           <span class="italic-sans">Siap mulai,</span> <span style="font-weight: 400;">atau masih</span><br />
@@ -37,36 +36,28 @@ import { whatsappGeneral } from '../../data/site';
 <style is:global>
 .cta-section {
   padding: 95px 0 110px;
-  background: #4e805f;
+  background: #386f4a;
+  position: relative;
 }
 
 .cta-banner {
-  background: #f9f8ed;
-  border-radius: 40px;
-  padding: 80px 70px;
-  border: none;
+  background: #fdfceb;
+  border-radius: 36px;
+  padding: 65px 60px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 40px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 20px 50px rgba(18, 45, 25, 0.18);
 }
 
-.cta-bg-shadow {
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 60%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(132, 148, 116, 0.5) 0%, transparent 65%);
-  pointer-events: none;
-  z-index: 1;
-}
 
 .cta-left {
   flex: 1;
-  max-width: 650px;
+  max-width: 600px;
   z-index: 2;
   position: relative;
 }
@@ -74,52 +65,62 @@ import { whatsappGeneral } from '../../data/site';
 .cta-right {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  width: 340px;
+  gap: 14px;
+  width: 320px;
   z-index: 2;
   position: relative;
+  flex-shrink: 0;
 }
 
 .cta-title {
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.1;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.12;
   letter-spacing: -0.02em;
-  color: #428b5e;
-  margin-bottom: 24px;
+  color: #1e452a;
+  margin-bottom: 18px;
 }
+
 .cta-title span.italic-sans {
   font-style: italic;
   font-weight: 800;
 }
 
 .cta-desc {
-  font-size: 1.05rem;
-  color: #428b5e;
-  margin-bottom: 40px;
+  font-size: 1.02rem;
+  color: #3b6649;
+  margin-bottom: 32px;
   line-height: 1.6;
 }
 
 .cta-custom-btn {
-  background: #428b5e;
-  color: white;
+  background: #275735;
+  color: #ffffff;
   border-radius: 999px;
   text-decoration: none;
-  transition: all 0.2s ease;
-  box-shadow: 2px 4px 0px #d3d4c5;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(27, 56, 34, 0.18);
   border: none;
+  box-sizing: border-box;
 }
 
 .cta-custom-btn:hover {
-  transform: translate(1px, 2px);
-  box-shadow: 1px 2px 0px #d3d4c5;
+  background: #1c4228;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(27, 56, 34, 0.25);
+}
+
+.cta-custom-btn:active {
+  transform: scale(0.98);
 }
 
 .whatsapp-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 12px 32px;
+  gap: 10px;
+  padding: 13px 30px;
+  font-weight: 700;
+  font-size: 1.05rem;
   width: max-content;
 }
 
@@ -127,31 +128,86 @@ import { whatsappGeneral } from '../../data/site';
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 12px 32px;
+  padding: 12px 28px;
   width: 100%;
 }
 
 .social-title {
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.2;
 }
 
 .social-handle {
-  font-size: 0.85rem;
-  opacity: 0.9;
+  font-size: 0.82rem;
+  opacity: 0.88;
   font-weight: 400;
   line-height: 1.3;
 }
 
 @media (max-width: 900px) {
+  .cta-section {
+    padding: 70px 0;
+  }
+
   .cta-banner {
     flex-direction: column;
-    padding: 50px 30px;
-    align-items: flex-start;
+    padding: 46px 32px;
+    align-items: stretch;
+    gap: 32px;
+    border-radius: 28px;
   }
+
+  .cta-left {
+    max-width: 100%;
+  }
+
   .cta-right {
     width: 100%;
+  }
+
+  .whatsapp-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .cta-section {
+    padding: 50px 0 60px;
+  }
+
+  .cta-banner {
+    padding: 32px 18px;
+    border-radius: 22px;
+    gap: 24px;
+  }
+
+  .cta-title {
+    font-size: clamp(1.8rem, 6.5vw, 2.3rem);
+    margin-bottom: 12px;
+  }
+
+  .cta-desc {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+
+  .whatsapp-btn {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    width: 100%;
+  }
+
+  .social-btn {
+    padding: 10px 20px;
+  }
+
+  .social-title {
+    font-size: 0.92rem;
+  }
+
+  .social-handle {
+    font-size: 0.78rem;
   }
 }
 </style>
