@@ -1,8 +1,7 @@
 ---
-import { withBase } from '../../data/site';
 ---
 
-<section class="why-us-section" id="kenapa" style={`background-image: url('${withBase('/images/2fade.png')}');`}>
+<section class="why-us-section" id="kenapa">
   <div class="wu-container">
     <div class="wu-card">
       <div class="wu-text-col">
@@ -43,11 +42,9 @@ import { withBase } from '../../data/site';
 
 <style is:global>
 .why-us-section {
-  padding: 100px 0;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #386f4a;
+  padding: 90px 0;
+  background: linear-gradient(160deg, var(--color-secondary) 0%, #29603d 55%, var(--color-primary) 100%);
+  color: #ffffff;
   position: relative;
 }
 
@@ -57,17 +54,17 @@ import { withBase } from '../../data/site';
 }
 
 .wu-card {
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(254, 254, 227, 0.12);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border: 1.5px solid rgba(254, 254, 227, 0.35);
   border-radius: 36px;
   padding: 60px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 40px;
-  box-shadow: 0 20px 50px rgba(18, 45, 25, 0.2);
+  box-shadow: 0 20px 50px rgba(11, 61, 30, 0.25);
   position: relative;
   overflow: hidden;
 }
@@ -83,7 +80,7 @@ import { withBase } from '../../data/site';
 
 .wu-heading {
   font-family: var(--font-sans);
-  color: #ffffff;
+  color: var(--color-cream);
   line-height: 1.05;
   margin-bottom: 16px;
 }
@@ -101,7 +98,7 @@ import { withBase } from '../../data/site';
   display: flex;
   align-items: baseline;
   letter-spacing: 0.02em;
-  text-shadow: 0 16px 36px rgba(27, 65, 38, 0.6);
+  text-shadow: 0 16px 36px rgba(11, 61, 30, 0.6);
   margin-top: -0.6rem;
 }
 
@@ -109,12 +106,12 @@ import { withBase } from '../../data/site';
   font-family: 'Montserrat', var(--font-sans);
   font-size: clamp(3.2rem, 7vw, 5.5rem);
   font-weight: 800;
-  color: var(--color-accent-lime);
+  color: var(--color-cream);
   margin-left: 2px;
 }
 
 .wu-sub {
-  color: #eaf2eb;
+  color: #eaf3ec;
   font-size: 1.05rem;
   font-weight: 400;
   line-height: 1.6;
@@ -156,14 +153,14 @@ import { withBase } from '../../data/site';
 }
 
 .wu-outline {
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid var(--color-cream);
+  color: var(--color-cream);
+  background: rgba(254, 254, 227, 0.08);
 }
 
 .wu-solid {
-  background: #fdfceb;
-  color: #224d31;
+  background: var(--color-cream);
+  color: var(--color-primary);
   font-weight: 700;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }

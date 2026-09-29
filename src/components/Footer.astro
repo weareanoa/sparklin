@@ -20,7 +20,7 @@ import { whatsappGeneral, withBase } from '../data/site';
     </nav>
 
     <div class="footer-socials">
-      <a href="https://instagram.com/sparklinshoecare" target="_blank" rel="noreferrer" class="social-icon" aria-label="Instagram Sparklin Shoe Care">
+      <a href="https://www.instagram.com/sparklinshoescare" target="_blank" rel="noreferrer" class="social-icon" aria-label="Instagram Sparklin Shoe Care">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
       </a>
       <a href={whatsappGeneral} target="_blank" rel="noreferrer" class="social-icon" aria-label="WhatsApp Sparklin Shoe Care">
@@ -31,7 +31,7 @@ import { whatsappGeneral, withBase } from '../data/site';
       </a>
     </div>
     
-    <p class="footer-location" style="font-family: var(--font-mono); font-size: 0.85rem; color: #8fa092; margin-top: -5px;">Bandung, Jawa Barat</p>
+    <p class="footer-location" style="font-family: var(--font-mono); font-size: 0.85rem; color: rgba(254, 254, 227, 0.7); margin-top: -5px;">Bandung, Jawa Barat</p>
   </div>
 
   <div class="footer-bottom-bar">
@@ -44,7 +44,7 @@ import { whatsappGeneral, withBase } from '../data/site';
 
 <style is:global>
 .site-footer {
-  background: linear-gradient(180deg, #1b3822 0%, #122818 100%);
+  background: linear-gradient(180deg, var(--color-primary) 0%, #061c0d 100%);
   color: #ffffff;
   padding: 70px 0 20px;
 }
@@ -66,7 +66,7 @@ import { whatsappGeneral, withBase } from '../data/site';
   width: 15%;
   max-width: 800px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(254, 254, 227, 0.2);
   margin-top: -16px;
 }
 
@@ -81,12 +81,13 @@ import { whatsappGeneral, withBase } from '../data/site';
 .footer-nav a {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #d1dcce;
+  color: rgba(254, 254, 227, 0.85);
   transition: color 0.15s ease;
 }
 
 .footer-nav a:hover {
-  color: var(--color-accent-lime);
+  color: var(--color-cream);
+  text-decoration: underline;
 }
 
 .footer-socials {
@@ -99,17 +100,17 @@ import { whatsappGeneral, withBase } from '../data/site';
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: var(--color-cream);
   transition: all 0.2s ease;
 }
 
 .social-icon:hover {
-  color: var(--color-accent-lime);
-  transform: translateY(-3px);
+  color: var(--color-cream);
+  transform: translateY(-3px) scale(1.1);
 }
 
 .footer-bottom-bar {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(254, 254, 227, 0.14);
   margin-top: 24px;
   padding-top: 16px;
   width: 100%;
@@ -121,7 +122,7 @@ import { whatsappGeneral, withBase } from '../data/site';
   align-items: center;
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: #8fa092;
+  color: rgba(254, 254, 227, 0.65);
   flex-wrap: wrap;
   gap: 16px;
 }

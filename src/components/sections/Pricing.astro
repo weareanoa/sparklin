@@ -3,330 +3,325 @@ import { pricingPackages, addOns, whatsappBase } from '../../data/site';
 ---
 
 <section class="pricing-section" id="harga">
-        <div class="section-shell">
-          <div class="section-header-block">
-            <h2 class="section-title text-white">
-              <span class="italic-serif">Daftar</span> Harga
-            </h2>
-            <p class="section-subtitle text-white-muted">
-              Tarif terjangkau dan transparan untuk mahasiswa dan pecinta sneakers di Bandung.
-            </p>
-          </div>
+  <div class="section-shell">
+    <div class="pricing-wrapper-card">
+      <div class="pricing-header-inside">
+        <h2 class="pricing-title">
+          <span class="italic-title">Daftar</span> <strong>Harga</strong>
+        </h2>
+      </div>
 
-          <div class="pricing-grid">
-            {pricingPackages.map((pkg) => {
-              const waUrl = `${whatsappBase}${encodeURIComponent(pkg.waMessage)}`;
-              return (
-                <div class={`pricing-card ${pkg.highlight ? 'is-highlight' : ''}`}>
-                  {pkg.badge && <div class="pricing-badge">{pkg.badge}</div>}
+      <div class="pricing-packages-grid">
+        {pricingPackages.map((pkg) => {
+          const waUrl = `${whatsappBase}${encodeURIComponent(pkg.waMessage)}`;
+          return (
+            <div class={`pkg-card ${pkg.highlight ? 'is-highlight' : ''}`}>
+              <div class="pkg-top">
+                <h3 class="pkg-name">{pkg.name}</h3>
+                <p class="pkg-desc">{pkg.desc}</p>
+              </div>
 
-                  <div class="pricing-header">
-                    <h3 class="package-name">{pkg.name}</h3>
-                    <p class="package-desc">{pkg.desc}</p>
-                    <div class="package-price">
-                      <span class="currency">Rp</span>
-                      <span class="amount">{pkg.price}</span>
-                      <span class="unit">{pkg.unit}</span>
-                    </div>
-                  </div>
+              <div class="pkg-price-row">
+                <span class="pkg-amount">{pkg.price.replace('.000', '')}</span>
+                <span class="pkg-unit">ribu {pkg.unit}</span>
+              </div>
 
-                  <ul class="package-features">
-                    {pkg.features.map((feat) => (
-                      <li>
-                        <span class="feat-check">✓</span>
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <a href={waUrl} target="_blank" rel="noreferrer" class={`btn-order ${pkg.highlight ? 'btn-order-highlight' : ''}`}>
-                    Pesan Sekarang ↗
-                  </a>
-                </div>
-              );
-            })}
-          </div>
-
-          <div class="addons-container">
-            <h3 class="addons-heading">Layanan Tambahan (Add-on)</h3>
-            <div class="addons-grid">
-              {addOns.map((add) => {
-                const waUrl = `${whatsappBase}${encodeURIComponent(`Halo Sparklin, saya ingin tambah addon ${add.title} (${add.price}).`)}`;
-                return (
-                  <div class="addon-card">
-                    <div class="addon-icon-box">+</div>
-                    <div class="addon-info">
-                      <h4 class="addon-title">{add.title}</h4>
-                      <p class="addon-desc">{add.desc}</p>
-                    </div>
-                    <div class="addon-price">{add.price}</div>
-                    <a href={waUrl} target="_blank" rel="noreferrer" class="addon-action" aria-label={`Pesan addon ${add.title}`}>+</a>
-                  </div>
-                );
-              })}
+              <a
+                href={waUrl}
+                target="_blank"
+                rel="noreferrer"
+                class={`pkg-btn ${pkg.highlight ? 'pkg-btn-highlight' : ''}`}
+                aria-label={`Pesan paket ${pkg.name}`}
+              >
+                Pesan Sekarang
+              </a>
             </div>
-          </div>
-        </div>
-      </section>
+          );
+        })}
+      </div>
+
+      <div class="pricing-addons-grid">
+        {addOns.map((add) => {
+          const waUrl = `${whatsappBase}${encodeURIComponent(`Halo Sparklin, saya ingin tambah addon ${add.title} (${add.price}).`)}`;
+          return (
+            <div class="addon-pill-card">
+              <div class="addon-left">
+                <div class="addon-icon">+</div>
+                <div class="addon-details">
+                  <h4 class="addon-title">{add.title}</h4>
+                  <p class="addon-desc">{add.desc}</p>
+                </div>
+              </div>
+              <div class="addon-right">
+                <span class="addon-price">{add.price}</span>
+                <a href={waUrl} target="_blank" rel="noreferrer" class="addon-btn-link" aria-label={`Pesan addon ${add.title}`}>
+                  +
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
 
 <style is:global>
 .pricing-section {
-  background: linear-gradient(165deg, #275234 0%, #1e4228 55%, #15321e 100%);
-  padding: 95px 0;
-  color: #ffffff;
+  padding: 90px 0;
+  background-color: var(--color-cream);
   position: relative;
 }
 
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-bottom: 50px;
+.pricing-wrapper-card {
+  background: var(--color-secondary);
+  border-radius: 36px;
+  padding: 55px 48px;
+  box-shadow: 0 20px 50px rgba(11, 61, 30, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
-.pricing-card {
-  background: #254d31;
-  border-radius: 26px;
-  padding: 38px 28px;
+.pricing-header-inside {
+  margin-bottom: 4px;
+}
+
+.pricing-title {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  color: var(--color-cream);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.pricing-title .italic-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  margin-right: 6px;
+}
+
+.pricing-title strong {
+  font-family: var(--font-sans);
+  font-weight: 800;
+}
+
+.pricing-packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.pkg-card {
+  background: var(--color-cream);
+  border-radius: 28px;
+  padding: 34px 26px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid rgba(244, 246, 236, 0.14);
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  min-height: 290px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-.pricing-card:hover {
+.pkg-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 16px 36px rgba(11, 61, 30, 0.2);
 }
 
-.pricing-card.is-highlight {
-  background: linear-gradient(150deg, #2d633e 0%, #224d30 100%);
-  border: 2px solid var(--color-accent-lime);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
-  transform: translateY(-6px);
+.pkg-card.is-highlight {
+  background: #2f6b45;
+  color: var(--color-cream);
+  border: 2px solid rgba(254, 254, 227, 0.35);
 }
 
-.pricing-card.is-highlight:hover {
-  transform: translateY(-9px);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4);
-}
-
-.pricing-badge {
-  position: absolute;
-  top: -13px;
-  right: 24px;
-  background: var(--color-accent-lime);
-  color: #173b22;
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  font-weight: 700;
-  padding: 5px 14px;
-  border-radius: 999px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.package-name {
-  font-size: 1.55rem;
+.pkg-name {
+  font-size: 1.15rem;
   font-weight: 800;
-  margin-bottom: 8px;
-  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+  margin-bottom: 10px;
 }
 
-.package-desc {
-  font-size: 0.88rem;
-  color: #d1e2d4;
-  margin-bottom: 22px;
-  min-height: 44px;
+.pkg-card.is-highlight .pkg-name {
+  color: var(--color-cream);
+}
+
+.pkg-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
   line-height: 1.5;
+  min-height: 44px;
 }
 
-.package-price {
+.pkg-card.is-highlight .pkg-desc {
+  color: rgba(254, 254, 227, 0.85);
+}
+
+.pkg-price-row {
   display: flex;
   align-items: baseline;
   gap: 6px;
-  margin-bottom: 24px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 18px 0 22px;
 }
 
-.package-price .currency {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #b7d6be;
-}
-
-.package-price .amount {
+.pkg-amount {
   font-size: 2.6rem;
   font-weight: 800;
   line-height: 1;
-  color: #ffffff;
+  color: var(--color-primary);
+  font-family: var(--font-sans);
 }
 
-.package-price .unit {
-  font-size: 0.85rem;
-  color: #b7d6be;
+.pkg-card.is-highlight .pkg-amount {
+  color: var(--color-cream);
 }
 
-.package-features {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 13px;
-  margin-bottom: 32px;
+.pkg-unit {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
 }
 
-.package-features li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.9rem;
-  color: #eaf0eb;
-  line-height: 1.4;
+.pkg-card.is-highlight .pkg-unit {
+  color: rgba(254, 254, 227, 0.85);
 }
 
-.feat-check {
-  color: var(--color-accent-lime);
-  font-weight: 800;
-  font-size: 1.05rem;
-  flex-shrink: 0;
-}
-
-.btn-order {
+.pkg-btn {
   display: block;
   text-align: center;
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
-  padding: 13px;
+  background: var(--color-primary);
+  color: var(--color-cream);
+  padding: 13px 20px;
   border-radius: 999px;
   font-weight: 700;
   font-size: 0.92rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transition: all 0.2s ease;
   text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(11, 61, 30, 0.18);
 }
 
-.btn-order:hover {
-  background: rgba(255, 255, 255, 0.22);
+.pkg-btn:hover {
+  background: var(--color-forest-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(11, 61, 30, 0.28);
+}
+
+.pkg-btn-highlight {
+  background: var(--color-cream);
+  color: var(--color-primary);
+  border: none;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.pkg-btn-highlight:hover {
+  background: #f7f7c8;
+  color: var(--color-primary);
   transform: translateY(-2px);
 }
 
-.btn-order-highlight {
-  background: var(--color-accent-lime);
-  color: #173b22;
-  border: none;
-  font-weight: 800;
-}
-
-.btn-order-highlight:hover {
-  background: #c3e843;
-  color: #173b22;
-}
-
-.addons-container {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 26px;
-  padding: 34px 30px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.addons-heading {
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #ffffff;
-}
-
-.addons-grid {
+.pricing-addons-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-  width: 100%;
 }
 
-.addon-card {
-  background: #254d31;
-  border-radius: 18px;
-  padding: 16px 18px;
+.addon-pill-card {
+  background: var(--color-cream);
+  border-radius: 999px;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.addon-pill-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(11, 61, 30, 0.18);
+}
+
+.addon-left {
   display: flex;
   align-items: center;
   gap: 14px;
-  border: 1px solid rgba(244, 246, 236, 0.12);
-  transition: all 0.2s ease;
   min-width: 0;
-  box-sizing: border-box;
+  flex: 1;
 }
 
-.addon-card:hover {
-  background: #2b5939;
-  border-color: rgba(176, 212, 58, 0.35);
-  transform: translateY(-2px);
-}
-
-.addon-icon-box {
-  width: 36px;
-  height: 36px;
+.addon-icon {
+  width: 34px;
+  height: 34px;
   border-radius: 10px;
-  background: rgba(176, 212, 58, 0.15);
-  color: var(--color-accent-lime);
+  background: var(--color-primary);
+  color: var(--color-cream);
   display: grid;
   place-items: center;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   flex-shrink: 0;
 }
 
-.addon-info {
-  flex: 1;
+.addon-details {
   min-width: 0;
+  flex: 1;
 }
 
 .addon-title {
   font-size: 0.88rem;
   font-weight: 800;
+  color: var(--color-primary);
   margin-bottom: 2px;
-  color: #ffffff;
+  text-transform: uppercase;
   letter-spacing: 0.02em;
-  word-break: break-word;
 }
 
 .addon-desc {
   font-size: 0.74rem;
-  color: #bad0c0;
-  line-height: 1.4;
-  word-break: break-word;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.addon-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .addon-price {
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--color-accent-lime);
-  flex-shrink: 0;
-  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-primary);
 }
 
-.addon-action {
+.addon-btn-link {
   display: grid;
   place-items: center;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  background: var(--color-primary);
+  color: var(--color-cream);
   font-weight: 800;
-  flex-shrink: 0;
-  transition: all 0.2s ease;
+  font-size: 1rem;
   text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.addon-action:hover {
-  background: var(--color-accent-lime);
-  color: #173b22;
-  transform: scale(1.08);
+.addon-btn-link:hover {
+  background: var(--color-forest-deep);
+  transform: scale(1.1);
 }
 
 @media (max-width: 1024px) {
@@ -334,19 +329,17 @@ import { pricingPackages, addOns, whatsappBase } from '../../data/site';
     padding: 70px 0;
   }
 
-  .pricing-grid {
+  .pricing-wrapper-card {
+    padding: 40px 28px;
+    border-radius: 28px;
+  }
+
+  .pricing-packages-grid {
     grid-template-columns: 1fr;
-    gap: 22px;
-    max-width: 540px;
-    margin-inline: auto;
-    margin-bottom: 40px;
+    gap: 18px;
   }
 
-  .pricing-card.is-highlight {
-    transform: none;
-  }
-
-  .addons-grid {
+  .pricing-addons-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
@@ -357,116 +350,46 @@ import { pricingPackages, addOns, whatsappBase } from '../../data/site';
     padding: 50px 0 60px;
   }
 
-  .pricing-card {
-    padding: 28px 20px;
+  .pricing-wrapper-card {
+    padding: 28px 16px;
+    border-radius: 22px;
+    gap: 22px;
+  }
+
+  .pricing-title {
+    font-size: clamp(2rem, 6.5vw, 2.6rem);
+  }
+
+  .pkg-card {
+    padding: 24px 18px;
     border-radius: 20px;
-  }
-
-  .pricing-badge {
-    top: -11px;
-    right: 18px;
-    font-size: 0.68rem;
-    padding: 4px 10px;
-  }
-
-  .package-name {
-    font-size: 1.35rem;
-  }
-
-  .package-desc {
     min-height: auto;
-    margin-bottom: 16px;
-    font-size: 0.84rem;
   }
 
-  .package-price {
-    margin-bottom: 18px;
-    padding-bottom: 16px;
-  }
-
-  .package-price .amount {
+  .pkg-amount {
     font-size: 2.2rem;
   }
 
-  .package-features {
-    gap: 10px;
-    margin-bottom: 24px;
-  }
-
-  .package-features li {
-    font-size: 0.85rem;
-  }
-
-  .addons-container {
-    padding: 22px 14px;
+  .addon-pill-card {
     border-radius: 20px;
-  }
-
-  .addons-heading {
-    font-size: 1.15rem;
-    margin-bottom: 14px;
-  }
-
-  .addon-card {
-    padding: 12px 12px;
-    border-radius: 14px;
-    gap: 10px;
-  }
-
-  .addon-icon-box {
-    width: 30px;
-    height: 30px;
-    font-size: 0.95rem;
-    border-radius: 8px;
-  }
-
-  .addon-title {
-    font-size: 0.8rem;
+    padding: 12px 14px;
   }
 
   .addon-desc {
-    font-size: 0.7rem;
-  }
-
-  .addon-price {
-    font-size: 0.88rem;
-  }
-
-  .addon-action {
-    width: 28px;
-    height: 28px;
-    font-size: 0.88rem;
+    white-space: normal;
   }
 }
 
-@media (max-width: 380px) {
-  .addon-card {
-    padding: 10px 10px;
-    gap: 8px;
+@media (max-width: 420px) {
+  .addon-pill-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
-  .addon-icon-box {
-    width: 26px;
-    height: 26px;
-    font-size: 0.85rem;
-  }
-
-  .addon-title {
-    font-size: 0.75rem;
-  }
-
-  .addon-desc {
-    font-size: 0.66rem;
-  }
-
-  .addon-price {
-    font-size: 0.82rem;
-  }
-
-  .addon-action {
-    width: 24px;
-    height: 24px;
-    font-size: 0.8rem;
+  .addon-right {
+    width: 100%;
+    justify-content: space-between;
   }
 }
 </style>

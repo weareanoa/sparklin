@@ -190,7 +190,7 @@ Commit types in use: `feat`, `fix`, `docs`, `build`, `chore`, `style`, `refactor
 
 ## Links
 
-- **Instagram** — [@sparklinshoecare](https://instagram.com/sparklinshoecare)
+- **Instagram** — [@sparklinshoecare](https://www.instagram.com/sparklinshoescare)
 - **TikTok** — [@sparklinshoecare](https://tiktok.com/@sparklinshoecare)
 - **Booking** — WhatsApp, prefilled per service
 - **Location** — Bandung, Jawa Barat

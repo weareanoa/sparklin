@@ -73,8 +73,10 @@ import { navLinks, whatsappGeneral } from '../data/site';
   right: 0;
   z-index: 100;
   padding: 12px 40px;
-  background: linear-gradient(90deg, #e9eed9 0%, #cfdcba 100%);
-  border-bottom: 1px solid rgba(27, 56, 34, 0.08);
+  background: rgba(254, 254, 227, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(11, 61, 30, 0.12);
   transition: all 0.3s ease;
 }
 
@@ -94,7 +96,7 @@ import { navLinks, whatsappGeneral } from '../data/site';
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  color: var(--color-dark-green);
+  color: var(--color-primary);
   transition: opacity 0.2s ease;
 }
 
@@ -112,10 +114,11 @@ import { navLinks, whatsappGeneral } from '../data/site';
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--color-bg-cream);
+  background: #ffffff;
   padding: 6px 6px;
   border-radius: 999px;
-  box-shadow: 0 3px 14px rgba(27, 56, 34, 0.08);
+  border: 1px solid rgba(11, 61, 30, 0.1);
+  box-shadow: 0 3px 14px rgba(11, 61, 30, 0.06);
 }
 
 .nav-list {
@@ -130,17 +133,17 @@ import { navLinks, whatsappGeneral } from '../data/site';
 .nav-item {
   font-size: 0.95rem;
   font-weight: 500;
-  color: #41573f;
+  color: var(--color-text-muted);
   transition: color 0.15s ease;
 }
 
 .nav-item:hover {
-  color: var(--color-dark-green);
+  color: var(--color-primary);
 }
 
 .nav-cta-btn {
-  background: var(--color-dark-green);
-  color: #ffffff;
+  background: var(--color-primary);
+  color: var(--color-cream);
   font-size: 0.95rem;
   font-weight: 600;
   padding: 13px 34px;
@@ -177,7 +180,7 @@ import { navLinks, whatsappGeneral } from '../data/site';
 .mobile-menu-toggle .bar {
   width: 26px;
   height: 2.5px;
-  background: var(--color-dark-green);
+  background: var(--color-primary);
   border-radius: 2px;
   transition: transform 0.25s ease, opacity 0.2s ease;
   transform-origin: center;
@@ -201,11 +204,11 @@ import { navLinks, whatsappGeneral } from '../data/site';
   opacity: 0;
   transition: max-height 0.32s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
   margin: 0 16px;
-  background: var(--color-bg-card);
+  background: var(--color-cream);
   border-radius: 0 0 20px 20px;
-  border: 1px solid var(--color-border-soft);
+  border: 1px solid rgba(11, 61, 30, 0.15);
   border-top: none;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 16px 40px rgba(11, 61, 30, 0.12);
   pointer-events: none;
 }
 
@@ -227,14 +230,14 @@ import { navLinks, whatsappGeneral } from '../data/site';
   display: block;
   font-size: 1.05rem;
   font-weight: 600;
-  color: var(--color-dark-green);
+  color: var(--color-primary);
   padding: 12px 0;
-  border-bottom: 1px solid rgba(27, 56, 34, 0.07);
+  border-bottom: 1px solid rgba(11, 61, 30, 0.08);
   transition: color 0.15s ease, padding-left 0.15s ease;
 }
 
 .mobile-nav-item:hover {
-  color: var(--color-forest-deep);
+  color: var(--color-secondary);
   padding-left: 6px;
 }
 
@@ -245,8 +248,8 @@ import { navLinks, whatsappGeneral } from '../data/site';
 .mobile-cta-btn {
   display: block;
   text-align: center;
-  background: var(--color-dark-green);
-  color: #ffffff;
+  background: var(--color-primary);
+  color: var(--color-cream);
   padding: 14px;
   margin: 4px 24px 20px;
   border-radius: 999px;
